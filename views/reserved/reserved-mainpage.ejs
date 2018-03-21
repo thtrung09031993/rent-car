@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Reserved car</title>
+    <% include ./partials/head%>
+        <link rel="stylesheet" href="/stylesheets/reserved.css">
+        <script type="text/javascript" src="/javascripts/reserved.js"></script>        
+</head>
+
+<body onclick="addBtnCssOnclick('carousel-indicators-btn','carouselBtn');">
+    <header>
+        <% include ./partials/header%>
+    </header>
+    <main>
+        <div class="container-fluid">
+            <div class="container">
+                <!--Title-->
+                <div class="row" style="margin-top: 40px;">
+                    <div class="col-lg-9">
+                        <h2 class="display-4">
+                            <%= car.brand %>
+                                <span style="color:#FED000">
+                                    <%= car.class%>
+                                </span>
+                        </h2>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="row" style="background-color: #FFCF00;">
+                            <h2 class="display-5" style="color:white;">
+                                <%= car.rentalPrice%>$
+                                    <h6 class="align-self-end mr-3">PER DAY</h6>
+                            </h2>
+                        </div>
+                        <small class="form-text text-muted">INCLUDE TAXES AND CHECKUP</small>
+                    </div>
+                </div>
+                <% include ./reserved/car-detail%>
+                    <div class="row" style="margin-top:30px; margin-bottom: 30px;">
+                        <!--For Customer Input-->
+                        <div class="col-lg-3">
+
+                        </div>
+                        <div class="col-lg-9">
+                            <form action="/order/reserved" method="POST">
+                                <input type="hidden" name="carid" value="<%=car._id%>"/>
+                                <!--Booking detail input-->
+                                <%include ./reserved/booking-detail%>
+                                    <!--Extras $ Frees input-->
+                                    <%include ./reserved/extras-frees%>
+                                        <!--Payment options input-->
+                                        <%include ./reserved/payment-option%>
+                                            <!--Additional Requirements input-->
+                                            <%include ./reserved/additional-requirements%>
+                                                <!-- <button class="btn btn-primary">CANCEL</button> -->
+                                                <div class="d-flex justify-content-end">
+                                                    <a href="/user/reserved">
+                                                        <button id="cancel" class="btn btn-primary">CANCEL THIS</button>
+                                                    </a>
+                                                    <button type="submit" id="reserved" class="btn btn-primary">RESERVE NOW</button>
+                                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row" id="line_break">
+                    </div>
+                    <!--Similar Car detail-->
+                    <%include ./reserved/similar-car%>
+            </div>
+        </div>
+        <% include ./partials/contact%>
+    </main>
+    <footer>
+        <% include ./partials/footer%>
+    </footer>
+</body>
+
+</html>

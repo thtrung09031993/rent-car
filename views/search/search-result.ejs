@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Search Your Car</title>
+    <%include ../partials/head%>
+        <link rel="stylesheet" href="/stylesheets/search.css">
+</head>
+
+<body>
+    <header>
+        <%include ../partials/header%>
+    </header>
+    <main>
+        <div class="container-fluid search-car-result-cf">
+            <div class="container">
+                <%if (cars.length === 0){%>
+                    <h5>So sorry, we couldn't find your cars...</h5>
+                    <%} else {%>
+                        <h3>Here's the cars that we found for you!</h3>
+                        <div id="search-result" class="carousel slide car-show" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <!-- calculate the slide numbers to contain cars -->
+                                <%                                                        
+                                var slideCount = 1;
+                                var carIndex = 3;
+                                if (cars.length > 3){
+                                    for (var i = 3; i < cars.length; i++){
+                                        if ( i % 3 === 0){
+                                            slideCount++;
+                                        }
+                                    }
+                                }%>
+                                    <li data-target="#search-result" data-slide-to="0" class="active"></li>
+                                    <%for (var i = 1; i < slideCount; i++){%>
+                                        <li data-target="#search-result" data-slide-to="<%=i%>"></li>
+                                        <%};%>
+                            </ol>
+                            <div class="carousel-inner">
+                                <%if (slideCount === 1) {%>
+                                    <div class="carousel-item active">
+                                        <div class="row justify-content-around">
+                                            <%for (var i = 0; i < cars.length; i++) {%>
+                                                <div class="col-lg-3 search-result-cars" onclick="location.href = '/car/detail/<%=cars[i]._id%>'">
+                                                    <img src="<%=cars[i].image[0]%>" />
+                                                    <b class="search-result-cars-brand"><%=cars[i].brand%> </b>
+                                                    <b class="search-result-cars-class"><%=cars[i].class%></b>
+                                                    <br/>
+                                                    Start at <b><%=cars[i].rentalPrice%> USD</b> per day<br/>
+                                                    <div class="row search-result-cars-specs">
+                                                        <div class="col-lg-3 search-result-cars-year">
+                                                            <%=cars[i].publishedYear%>
+                                                        </div>
+                                                        <div class="col-lg-3 search-result-cars-auto">
+                                                            <%if (cars[i].automatic) {%>
+                                                                AUTO
+                                                            <%} else {%>
+                                                                MANU
+                                                            <%}%>
+                                                        </div>
+                                                        <div class="col-lg-3 search-result-cars-fuel">
+                                                                <%=cars[i].fuel%>
+                                                        </div>
+                                                        <div class="col-lg-3 search-result-cars-cc">
+                                                                <%=cars[i].cc%> CC
+                                                        </div>
+                                                    </div>                                                        
+                                                </div>
+                                                <%}%>
+                                        </div>
+                                    </div>
+                                    <%} else {%>
+                                        <div class="carousel-item active">
+                                            <div class="row justify-content-around">
+                                                <%for (var i = 0; i < 3; i++) {%>
+                                                    <div class="col-lg-3 search-result-cars" onclick="location.href = '/car/detail/<%=cars[i]._id%>'">
+                                                        <img src="<%=cars[i].image[0]%>" />
+                                                        <b class="search-result-cars-brand"><%=cars[i].brand%> </b>
+                                                        <b class="search-result-cars-class"><%=cars[i].class%></b>
+                                                        <br/>
+                                                        Start at <b><%=cars[i].rentalPrice%> USD</b> per day<br/>
+                                                        <div class="row search-result-cars-specs">
+                                                            <div class="col-lg-3 search-result-cars-year">
+                                                                <%=cars[i].publishedYear%>
+                                                            </div>
+                                                            <div class="col-lg-3 search-result-cars-auto">
+                                                                <%if (cars[i].automatic) {%>
+                                                                    AUTO
+                                                                <%} else {%>
+                                                                    MANU
+                                                                <%}%>
+                                                            </div>
+                                                            <div class="col-lg-3 search-result-cars-fuel">
+                                                                    <%=cars[i].fuel%>
+                                                            </div>
+                                                            <div class="col-lg-3 search-result-cars-cc">
+                                                                    <%=cars[i].cc%> CC
+                                                            </div>
+                                                        </div>                                                        
+                                                    </div>
+                                                    <%}%>
+                                            </div>
+                                        </div>
+                                        <%}%>
+                                            <%while (carIndex < cars.length) {
+                                            if (carIndex % 3 === 0) {%>
+                                                <div class="carousel-item">
+                                                    <div class="row justify-content-around">
+                                                        <%for (var i = 0; i < 3; i++) {
+                                                            if (carIndex === cars.length){
+                                                                break;
+                                                            }%>
+                                                            <div class="col-lg-3 search-result-cars" onclick="location.href = '/car/detail/<%=cars[carIndex]._id%>'">
+                                                                <img src="<%=cars[carIndex].image[0]%>" />
+                                                                <b class="search-result-cars-brand"><%=cars[carIndex].brand%> </b>
+                                                                <b class="search-result-cars-class"><%=cars[carIndex].class%></b>
+                                                                <br/>
+                                                                Start at <b><%=cars[carIndex].rentalPrice%> USD</b> per day<br/>
+                                                                <div class="row search-result-cars-specs">
+                                                                    <div class="col-lg-3 search-result-cars-year">
+                                                                        <%=cars[carIndex].publishedYear%>
+                                                                    </div>
+                                                                    <div class="col-lg-3 search-result-cars-auto">
+                                                                        <%if (cars[carIndex].automatic) {%>
+                                                                            AUTO
+                                                                        <%} else {%>
+                                                                            MANU
+                                                                        <%}%>
+                                                                    </div>
+                                                                    <div class="col-lg-3 search-result-cars-fuel">
+                                                                            <%=cars[carIndex].fuel%>
+                                                                    </div>
+                                                                    <div class="col-lg-3 search-result-cars-cc">
+                                                                            <%=cars[carIndex].cc%> CC
+                                                                    </div>
+                                                                </div>                                                        
+                                                            </div>
+                                                            <%carIndex++;}%>
+                                                    </div>
+                                                </div>
+                                                <%}}%>
+
+                            </div>
+                        </div>
+                        <%}%>
+                        <div class="row justify-content-between">
+                            <div class="col-lg-4">
+                                <a href="/car/search" style="text-decoration: none">Search other cars<<< </a></div>
+                            <div class="col-lg-4 text-right">
+                                <a href="/home" style="text-decoration: none"> >>>Back to home page </a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+
+
+        <!-- Contact -->
+        <%include ../partials/contact%>
+    </main>
+    <footer>
+        <%include ../partials/footer%>
+    </footer>
+</body>
+
+</html>

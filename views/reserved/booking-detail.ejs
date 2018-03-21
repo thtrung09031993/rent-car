@@ -1,0 +1,75 @@
+<div id="group">
+    <div class="row">
+        <h3 class="list-inline-element">Booking Detail</h3>
+    </div>
+    <div class="row" id="line_break">
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>PICKUP ADDRESS</label>
+                <input type="text" class="form-control" name="pickupaddr" placeholder="Airport or anywhere" required/>
+            </div>
+            <div class="form-group">
+                <label>PICKUP DATE</label>
+                <input type="text" autocomplete="off" class="form-control datetimepicker-input" placeholder="dd/mm/yyyy" name="pickupdate"
+                    id="datepickup" data-toggle="datetimepicker" data-target="#datepickup" required/>
+            </div>
+            <div class="form-group">
+                <label>PICKUP TIME</label>
+                <input type="text" autocomplete="off" class="form-control datetimepicker-input" placeholder="hh:mm" name="pickuptime" id="timepickup"
+                    data-toggle="datetimepicker" data-target="#timepickup" required/>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>DROP OFF ADDRESS</label>
+                <input type="text" class="form-control" name="dropoffaddr" placeholder="Airport or anywhere" required/>
+            </div>
+            <div class="form-group">
+                <label>DROP OFF DATE</label>
+                <input type="text" autocomplete="off" class="form-control datetimepicker-input" placeholder="dd/mm/yyyy" name="dropoffdate"
+                    id="datedropoff" data-toggle="datetimepicker" data-target="#datedropoff" required/>
+                <script type="text/javascript">
+                    $(function () {
+                        $('#datepickup').datetimepicker({
+                            format: 'L'
+                        });
+                        $('#datedropoff').datetimepicker({
+                            format: 'L',
+                            useCurrent: false
+                        });
+                        $("#datepickup").on("change.datetimepicker", function (e) {
+                            $('#datedropoff').datetimepicker('minDate', e.date);
+                        });
+                        $("#datedropoff").on("change.datetimepicker", function (e) {
+                            $('#datepickup').datetimepicker('maxDate', e.date);
+                        });
+                    });
+                </script>
+            </div>
+            <div class="form-group">
+                <label>DROP OFF TIME</label>
+                <input type="text" autocomplete="off" class="form-control datetimepicker-input" placeholder="hh:mm" name="dropofftime" id="timedropoff" data-toggle="datetimepicker"
+                    data-target="#timedropoff" required/>
+                <script type="text/javascript">
+                    $(function () {
+                        $('#timepickup').datetimepicker({
+                            format: 'LT'
+                        });
+                        $('#timedropoff').datetimepicker({
+                            format: 'LT',
+                            useCurrent: false
+                        });
+                        $("#timepickup").on("change.datetimepicker", function (e) {
+                            $('#timedropoff').datetimepicker('minDate', e.date);
+                        });
+                        $("#timedropoff").on("change.datetimepicker", function (e) {
+                            $('#timepickup').datetimepicker('maxDate', e.date);
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</div>

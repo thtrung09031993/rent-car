@@ -1,0 +1,313 @@
+<div class="container-fluid cardetail-middle-cf">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 cardetail-top-title">
+                <div class="cardetail-hidden-rank">
+                    <%=car.drivingRate%>
+                </div>
+                <div class="cardetail-hidden-rank">
+                    <%=car.practicalityRate%>
+                </div>
+                <div class="cardetail-hidden-rank">
+                    <%=car.interiorRate%>
+                </div>
+                <div class="cardetail-hidden-rank">
+                    <%=averageRank%>
+                </div>
+                <!-- star ranking -->
+                <fieldset class="rating cardetail-averagerank">
+                    <input type="radio" id="averagestar5" name="average-rating" value="5" />
+                    <label class="full" for="averagestar5" title="Awesome - 5 averagestars"></label>
+                    <input type="radio" id="averagestar4half" name="average-rating" value="4.5" />
+                    <label class="half" for="averagestar4half" title="Pretty good - 4.5 averagestars"></label>
+                    <input type="radio" id="averagestar4" name="average-rating" value="4" />
+                    <label class="full" for="averagestar4" title="Pretty good - 4 averagestars"></label>
+                    <input type="radio" id="averagestar3half" name="average-rating" value="3.5" />
+                    <label class="half" for="averagestar3half" title="Meh - 3.5 averagestars"></label>
+                    <input type="radio" id="averagestar3" name="average-rating" value="3" />
+                    <label class="full" for="averagestar3" title="Meh - 3 averagestars"></label>
+                    <input type="radio" id="averagestar2half" name="average-rating" value="2.5" />
+                    <label class="half" for="averagestar2half" title="Kinda bad - 2.5 averagestars"></label>
+                    <input type="radio" id="averagestar2" name="average-rating" value="2" />
+                    <label class="full" for="averagestar2" title="Kinda bad - 2 averagestars"></label>
+                    <input type="radio" id="averagestar1half" name="average-rating" value="1.5" />
+                    <label class="half" for="averagestar1half" title="Meh - 1.5 averagestars"></label>
+                    <input type="radio" id="averagestar1" name="average-rating" value="1" />
+                    <label class="full" for="averagestar1" title="Sucks big time - 1 averagestar"></label>
+                    <input type="radio" id="averagestarhalf" name="average-rating" value="half" />
+                    <label class="half" for="averagestarhalf" title="Sucks big time - 0.5 averagestars"></label>
+                </fieldset>
+                <div>
+                    <%=reviews.length%> REVIEWS</div>
+                <br/>
+                <h4>
+                    <b class="cardetail-carbrand">
+                        <%=car.brand%>
+                    </b>
+                    <span class="cardetail-carclass">
+                        <%=car.class%>
+                    </span>
+                </h4>
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-4 text-right">
+                <div class="row">
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-2 cardetail-currency">
+                        $
+                    </div>
+                    <div class="col-lg-6 cardetail-price-value">
+                        <div class="col-lg-9 text-center">
+                            <span id="cardetail-pricevalue"><%=parseFloat(car.rentalPrice).toFixed(2)%></span>
+                            <span id="cardetail-perday">PER DAY</span>
+                        </div>
+                    </div>
+                </div>
+                <p>INCLUDED TAXES & CHECKUP</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <img src="<%=car.image[0]%>" class="cardetail-image-main" />
+                    </div>
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-4">
+                        <div class="row">
+                            <div class="col-lg-12 cardetail-image-sub" id="cardetail-image-sub-1">
+                                <img src="<%=car.image[1]%>" />
+                                <button onclick="zoomImg('<%=car.image[1]%>')" class="cardetail-image-sub-hoverblock" id="sub-hoverblock-1">
+                                    <img src="https://cdn0.iconfinder.com/data/icons/huge-business-icons/512/Zoom_in.png" />
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 cardetail-image-sub" id="cardetail-image-sub-2">
+                                <img src="<%=car.image[2]%>" />
+                                <button onclick="zoomImg('<%=car.image[2]%>')" class="cardetail-image-sub-hoverblock" id="sub-hoverblock-2">
+                                    <img src="https://cdn0.iconfinder.com/data/icons/huge-business-icons/512/Zoom_in.png" />
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 cardetail-image-sub" id="cardetail-image-sub-3">
+                                <img src="<%=car.image[3]%>" />
+                                <button onclick="zoomImg('<%=car.image[3]%>')" class="cardetail-image-sub-hoverblock" id="sub-hoverblock-3">
+                                    <img src="https://cdn0.iconfinder.com/data/icons/huge-business-icons/512/Zoom_in.png" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cardetail-specs justify-content-around">
+                    <div class="col-lg-3">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Orange_people_icon.svg/2000px-Orange_people_icon.svg.png">
+                        <span>
+                            <%=car.passengerCapacity%> Passengers</span>
+                    </div>
+                    <div class="col-lg-3">
+                        <img src="https://cdn1.iconfinder.com/data/icons/travel-colored-icons-vol-2/48/117-512.png">
+                        <span>
+                            <%=car.luggageCapacity%> Luggages</span>
+                    </div>
+                    <div class="col-lg-2">
+                        <img src="http://www.iconsplace.com/download/yellow-wheel-512.gif">
+                        <%if (car.automatic) {%>
+                            <span>Automatic</span>
+                            <%} else {%>
+                                <span>Manual</span>
+                                <%}%>
+                    </div>
+                    <div class="col-lg-2">
+                        <img src="https://cdn4.iconfinder.com/data/icons/simple-soft/512/open_door-512.png">
+                        <span>
+                            <%=car.numOfDoors%> Doors</span>
+                    </div>
+                </div>
+                <div class="row cardetail-rating-title">
+                    <div class="col-lg-12">
+                        <b>Car Rating</b>
+                    </div>
+                </div>
+                <div class="row cardetail-rating-detail">
+                    <div class="col-lg-4">
+                        <div class="row">
+                            <div class="col-lg-3 cardetail-rating-number">
+                                <%=car.drivingRate%>
+                            </div>
+                            <div class="col-lg-9">
+                                <b>Driving</b>
+                                <br/>
+                                <fieldset class="rating cardetail-drivingrank">
+                                    <input type="radio" id="drivingstar5" name="driving-rating" value="5" />
+                                    <label class="full" for="drivingstar5" title="Awesome - 5 drivingstars"></label>
+                                    <input type="radio" id="drivingstar4half" name="driving-rating" value="4.5" />
+                                    <label class="half" for="drivingstar4half" title="Pretty good - 4.5 drivingstars"></label>
+                                    <input type="radio" id="drivingstar4" name="driving-rating" value="4" />
+                                    <label class="full" for="drivingstar4" title="Pretty good - 4 drivingstars"></label>
+                                    <input type="radio" id="drivingstar3half" name="driving-rating" value="3.5" />
+                                    <label class="half" for="drivingstar3half" title="Meh - 3.5 drivingstars"></label>
+                                    <input type="radio" id="drivingstar3" name="driving-rating" value="3" />
+                                    <label class="full" for="drivingstar3" title="Meh - 3 drivingstars"></label>
+                                    <input type="radio" id="drivingstar2half" name="driving-rating" value="2.5" />
+                                    <label class="half" for="drivingstar2half" title="Kinda bad - 2.5 drivingstars"></label>
+                                    <input type="radio" id="drivingstar2" name="driving-rating" value="2" />
+                                    <label class="full" for="drivingstar2" title="Kinda bad - 2 drivingstars"></label>
+                                    <input type="radio" id="drivingstar1half" name="driving-rating" value="1.5" />
+                                    <label class="half" for="drivingstar1half" title="Meh - 1.5 drivingstars"></label>
+                                    <input type="radio" id="drivingstar1" name="driving-rating" value="1" />
+                                    <label class="full" for="drivingstar1" title="Sucks big time - 1 drivingstar"></label>
+                                    <input type="radio" id="drivingstarhalf" name="driving-rating" value="half" />
+                                    <label class="half" for="drivingstarhalf" title="Sucks big time - 0.5 drivingstars"></label>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="row">
+                            <div class="col-lg-3 cardetail-rating-number">
+                                <%=car.practicalityRate%>
+                            </div>
+                            <div class="col-lg-9">
+                                <b>Practicality</b>
+                                <br/>
+                                <fieldset class="rating cardetail-practicalityrank">
+                                    <input type="radio" id="practicalitystar5" name="practicality-rating" value="5" />
+                                    <label class="full" for="practicalitystar5" title="Awesome - 5 practicalitystars"></label>
+                                    <input type="radio" id="practicalitystar4half" name="practicality-rating" value="4.5" />
+                                    <label class="half" for="practicalitystar4half" title="Pretty good - 4.5 practicalitystars"></label>
+                                    <input type="radio" id="practicalitystar4" name="practicality-rating" value="4" />
+                                    <label class="full" for="practicalitystar4" title="Pretty good - 4 practicalitystars"></label>
+                                    <input type="radio" id="practicalitystar3half" name="practicality-rating" value="3.5" />
+                                    <label class="half" for="practicalitystar3half" title="Meh - 3.5 practicalitystars"></label>
+                                    <input type="radio" id="practicalitystar3" name="practicality-rating" value="3" />
+                                    <label class="full" for="practicalitystar3" title="Meh - 3 practicalitystars"></label>
+                                    <input type="radio" id="practicalitystar2half" name="practicality-rating" value="2.5" />
+                                    <label class="half" for="practicalitystar2half" title="Kinda bad - 2.5 practicalitystars"></label>
+                                    <input type="radio" id="practicalitystar2" name="practicality-rating" value="2" />
+                                    <label class="full" for="practicalitystar2" title="Kinda bad - 2 practicalitystars"></label>
+                                    <input type="radio" id="practicalitystar1half" name="practicality-rating" value="1.5" />
+                                    <label class="half" for="practicalitystar1half" title="Meh - 1.5 practicalitystars"></label>
+                                    <input type="radio" id="practicalitystar1" name="practicality-rating" value="1" />
+                                    <label class="full" for="practicalitystar1" title="Sucks big time - 1 practicalitystar"></label>
+                                    <input type="radio" id="practicalitystarhalf" name="practicality-rating" value="half" />
+                                    <label class="half" for="practicalitystarhalf" title="Sucks big time - 0.5 practicalitystars"></label>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="row">
+                            <div class="col-lg-3 cardetail-rating-number">
+                                <%=car.interiorRate%>
+                            </div>
+                            <div class="col-lg-9">
+                                <b>Car Interior</b>
+                                <br/>
+                                <fieldset class="rating cardetail-interiorrank">
+                                    <input type="radio" id="interiorstar5" name="interior-rating" value="5" />
+                                    <label class="full" for="interiorstar5" title="Awesome - 5 interiorstars"></label>
+                                    <input type="radio" id="interiorstar4half" name="interior-rating" value="4.5" />
+                                    <label class="half" for="interiorstar4half" title="Pretty good - 4.5 interiorstars"></label>
+                                    <input type="radio" id="interiorstar4" name="interior-rating" value="4" />
+                                    <label class="full" for="interiorstar4" title="Pretty good - 4 interiorstars"></label>
+                                    <input type="radio" id="interiorstar3half" name="interior-rating" value="3.5" />
+                                    <label class="half" for="interiorstar3half" title="Meh - 3.5 interiorstars"></label>
+                                    <input type="radio" id="interiorstar3" name="interior-rating" value="3" />
+                                    <label class="full" for="interiorstar3" title="Meh - 3 interiorstars"></label>
+                                    <input type="radio" id="interiorstar2half" name="interior-rating" value="2.5" />
+                                    <label class="half" for="interiorstar2half" title="Kinda bad - 2.5 interiorstars"></label>
+                                    <input type="radio" id="interiorstar2" name="interior-rating" value="2" />
+                                    <label class="full" for="interiorstar2" title="Kinda bad - 2 interiorstars"></label>
+                                    <input type="radio" id="interiorstar1half" name="interior-rating" value="1.5" />
+                                    <label class="half" for="interiorstar1half" title="Meh - 1.5 interiorstars"></label>
+                                    <input type="radio" id="interiorstar1" name="interior-rating" value="1" />
+                                    <label class="full" for="interiorstar1" title="Sucks big time - 1 interiorstar"></label>
+                                    <input type="radio" id="interiorstarhalf" name="interior-rating" value="half" />
+                                    <label class="half" for="interiorstarhalf" title="Sucks big time - 0.5 interiorstars"></label>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cardetail-detailinfo">
+                    <div class="col-lg-12">
+                        <%=car.detail%>
+                    </div>
+                </div>
+                <div class="row cardetail-include-service">
+                    <div class="col-lg-2">
+                        <b>Included:</b>
+                    </div>
+                    <div class="col-lg-10">
+                        <%var serviceIndex = 0;
+                        var rowCount = 0;
+                        %>
+                            <%while (serviceIndex < car.includeServices.length) {
+                            if (serviceIndex % 3 === 0) { 
+                                if (rowCount === 0){%>
+                                <div class="row cardetail-service-row">
+                                    <%}for (var i = 0; i < 3; i++){
+                                        if (car.includeServices[serviceIndex].type === 'included'){ %>
+                                        <div class="col-lg-4 cardetail-service-service">
+                                            <!-- <%=car.includeServices[serviceIndex]%> -->
+                                            <img src="https://cdn1.iconfinder.com/data/icons/toolbar-signs/512/OK-512.png" />
+                                            <span> </span>
+                                            <%=car.includeServices[serviceIndex].name%>
+                                        </div>
+                                        <%rowCount++; if (rowCount === 3) {
+                                        rowCount = 0;
+                                    }} serviceIndex++;
+                                    if (serviceIndex === car.includeServices.length){
+                                        break;
+                                    }    
+                                }%>
+                                </div>
+                                <%}}%>
+                    </div>
+                </div>
+                <div class="row cardetail-notinclude-service">
+                    <div class="col-lg-2">
+                        <b>Not included:</b>
+                    </div>
+                    <div class="col-lg-10">
+                        <%var serviceIndex = 0;
+                        var rowCount = 0;
+                        %>
+                            <%while (serviceIndex < car.includeServices.length) {
+                            if (serviceIndex % 3 === 0) { 
+                                if (rowCount === 0){%>
+                                <div class="row cardetail-service-row">
+                                    <%}for (var i = 0; i < 3; i++){
+                                        if (car.includeServices[serviceIndex].type === 'extra'){ %>
+                                        <div class="col-lg-4 cardetail-service-service">
+                                            <!-- <%=car.includeServices[serviceIndex]%> -->
+                                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Red_x.svg/480px-Red_x.svg.png" />
+                                            <span> </span>
+                                            <%=car.includeServices[serviceIndex].name%>
+                                        </div>
+                                        <%rowCount++; if (rowCount === 3) {
+                                        rowCount = 0;
+                                    }} serviceIndex++;
+                                    if (serviceIndex === car.includeServices.length){
+                                        break;
+                                    }    
+                                }%>
+                                </div>
+                                <%}}%>
+                    </div>
+                </div>
+                <!-- Reviews -->
+                <%include ./cardetail-reviews%>
+
+                    <!-- Write review -->
+                    <%include ./cardetail-writereview%>
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-4">
+                <%include ./cardetail-orderform%>
+            </div>
+        </div>
+    </div>
+</div>

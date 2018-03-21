@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%include ../partials/head%>
+        <!-- About Us Page CSS -->
+        <link rel="stylesheet" href="/stylesheets/aboutus.css" />
+        <!-- About Us Page javascript -->
+        <script type="text/javascript" src="/javascripts/aboutus.js"></script>
+        <title>About Us</title>
+</head>
+
+<body onload="driverpageLoad()">
+    <% let slideCount;
+        let driverIndex = 3;%>
+        <header>
+            <%include ../partials/header%>
+        </header>
+        <main>
+            <!-- Title -->
+            <%include ./aboutus-title%>
+                <!-- Welcome -->
+                <%include ./aboutus-welcome%>
+                    <!-- Driver -->
+                    <%include ./aboutus-driver%>
+                        <!-- Contact -->
+                        <%include ../partials/contact%>
+        </main>
+        <footer>
+            <%include ../partials/footer%>
+        </footer>
+</body>
+
+</html>

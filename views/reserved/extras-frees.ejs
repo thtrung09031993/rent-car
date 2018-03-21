@@ -1,0 +1,30 @@
+<div id="group">
+    <div class="row">
+        <h3 class="list-inline-element">Extras & Frees</h3>
+    </div>
+    <div class="row" id="line_break">
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <%for (var i = 0; i < carService.length;i++) {%>
+                        <div class="form-check">
+                            <input class="form-check-input" name="extras" type="checkbox" value="<%=carService[i]._id%>" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                                <%= carService[i].name%>
+                                    <span>
+                                        <%if (carService[i].price == 0) {%>
+                                            <%= carService[i].type%>
+                                        <%} else {%>
+                                            <%= carService[i].price%>
+                                        <%}%>
+                                    </span>
+                            </label>
+                        </div>
+                        <%}%>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

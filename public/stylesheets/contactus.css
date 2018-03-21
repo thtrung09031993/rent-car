@@ -1,0 +1,78 @@
+/*~~~~~~~~~~~~~~~~~~ Specified CSS - Contact Us ~~~~~~~~~~~~~~~~~~~~*/
+
+/*Title*/
+.contactuspage-title-cf {
+    background-image: url(https://latestautocar.com/wp-content/uploads/2017/04/Luxury-Car-Wallpaper-Nexus-5-with-Image-Car-of-Car-Wallpaper-Nexus-5-at-Design.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100% 100%;
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
+
+.contactuspage-title a{
+    color: white;
+    text-decoration: none;
+}
+
+.contactuspage-title h6{
+    margin-top: 30px;
+}
+
+.contactuspage-title h1{
+    color: rgb(255, 174, 0);
+}
+
+/*Display Contact info*/
+.contactus-display-cf {
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
+
+.contactus-display-cf h6 {
+    color: black;
+}
+
+.contactus-title {
+    padding-bottom: 20px;
+}
+
+.contactus-title::before{
+    content : "";
+    position: absolute;
+    left    : 0;
+    bottom  : 0;
+    height  : 30px;
+    width   : 5%;  /* or 100px */
+    border-bottom:3px solid rgb(255, 187, 0);
+    margin-top: 20px;
+}
+
+.contactus-info {
+    padding-top: 50px;
+    padding-bottom: 200px;
+}
+
+.contactus-icons {
+    height: 80px;
+    background-color: rgb(228, 226, 226);
+}
+
+.contactus-icons img {
+    width: 40px;
+    height: 40px;
+    margin-top: 20px;
+}
+
+.contactus-inforows {
+    margin-top: 40px;
+}
+
+.contactus-image {
+    width: 100%;
+    height: 300px;
+}
+
+.contactus-contents {
+    padding-top: 30px;
+}

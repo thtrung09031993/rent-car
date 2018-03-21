@@ -1,0 +1,146 @@
+/*~~~~~~~~~~~~~~~~~~ Specified CSS - Drivers Detail ~~~~~~~~~~~~~~~~~~~~*/
+
+/*Title*/
+
+.driver-title-cf {
+    background-image: url(https://latestautocar.com/wp-content/uploads/2017/04/Luxury-Car-Wallpaper-Nexus-5-with-Image-Car-of-Car-Wallpaper-Nexus-5-at-Design.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100% 100%;
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
+
+.driver-title a {
+    color: white;
+    text-decoration: none;
+}
+
+.driver-title h6 {
+    margin-top: 30px;
+}
+
+.driver-title h2 {
+    font-size: 50px;
+    color: rgb(255, 174, 0);
+}
+
+/*Driver details*/
+
+.carousel-inner {
+    margin-bottom: 50px;
+}
+
+.carousel-indicators {
+    bottom: -100px;
+}
+
+.carousel-indicators li {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin: 10px;
+    text-indent: 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    background-color: lightgray;
+}
+
+.carousel-indicators .active {
+    width: 15px;
+    height: 15px;
+    margin: 10px;
+    background-color: grey;
+  }
+
+.driver-detail-cf {
+    position: relative;
+    z-index: 1;
+    background-color: rgb(240, 240, 240);
+}
+
+.driver-detail-c {
+    padding-bottom: 200px;
+    padding-top: 150px;
+}
+
+.driver-detail-title-border {
+    border-bottom-style: solid;
+    border-color: rgb(255, 187, 0);
+}
+
+.driver-detail-zoom-social {
+    margin-top: 50px;
+    opacity: 0.2;
+}
+
+.driver-detail-zoom-social img {
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+}
+
+.driver-detail-zoom-social a {
+    text-decoration: none;
+    color: black;
+}
+
+#driver-detail-zoom-experience {
+    color: rgb(179, 174, 174);
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+#driver-detail-zoom-detail {
+    margin-top: 50px;
+}
+
+#driver-detail-zoom-img {
+    position: absolute;
+    opacity: 0.3;
+    z-index: 0;
+    width: 50%;
+    height: 955px;
+}
+
+.driver-detail-social {
+    margin-top: 50px;
+    opacity: 0.3;
+}
+
+.driver-detail-social img{
+    width: 20px;
+    height: 20px;
+}
+
+.driver-detail-img img{
+    width: 130px;
+    height: 200px;
+    margin-left: 15px;
+}
+
+.driver-detail-all {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    white-space: nowrap;
+    background: white;
+    margin-top:70px;
+}
+
+.driver-detail-info h6 {
+    color: grey;
+    font-size: 12px;
+}
+
+/*Pseudo element*/
+.driver-detail-all::before{
+    content : "";
+    position: absolute;
+    left    : 0;
+    top  : 0;
+    height  : 30px;
+    width   : 100%;  /* or 100px */
+    border-left:3px solid rgb(255, 187, 0);
+    margin-top: 20px;
+}

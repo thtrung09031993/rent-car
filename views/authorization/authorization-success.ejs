@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login Page</title>
+    <% include ../partials/head %>
+</head>
+
+<body>
+    <header>
+        <% include ../partials/header %>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center success-page">
+                    <% if (typeof (stt) !== 'undefined') {
+                            if(stt == "successForgot") { %>
+                        <small style="color: green;" class="form-text">
+                            <%= message %>
+                        </small>
+                        <% } else if (stt == "successResetPassword") {%>
+                            <small style="color: green;" class="form-text">
+                                <%= message %>
+                            </small>
+                            <% }else if (stt == "errorToken") {%>
+                                <small style="color: red;" class="form-text">
+                                    <%= message %>
+                                </small>
+                                <% } %>
+                                    <% } %>
+                                        <br/>
+                                        <p>Click
+                                            <a href="/user/login">Here</a> to Login</p>
+                </div>
+            </div>
+        </div>
+        <!-- Contact -->
+        <% include ../partials/contact %>
+    </main>
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+</body>
+
+</html>

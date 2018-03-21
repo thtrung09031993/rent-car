@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <title>Reserved car</title>
+        <% include ./partials/head%>
+                <link rel="stylesheet" href="/stylesheets/reserved.css">
+                <script type="text/javascript" src="/javascripts/reserved.js"></script>
+</head>
+
+<body>
+        <header>
+                <% include ./partials/header%>
+        </header>
+        <main>
+                <div class="container-fluid" style="padding-top: 200px; padding-bottom:200px">
+                        <h2>Your orders</h2>
+                        <div class="row">
+                                <table class="table text-center">
+                                        <thead class="thead-dark">
+                                                <tr>
+                                                        <th>Pickup Addr</th>
+                                                        <th>Dropoff Addr</th>
+                                                        <th>Pickup Date</th>
+                                                        <th>Dropoff Date</th>
+                                                        <th>Pickup Time</th>
+                                                        <th>Dropoff Time</th>
+                                                        <th>Payment Option</th>
+                                                        <th>Process</th>
+                                                        <th></th>
+                                                </tr>
+                                        </thead>
+                                        <tbody>
+                                                <%if (listCarReserved.length == 0) {%>
+                                                        <p>You have not reserved any car yet </p>
+                                                        <%}else {%>
+                                                                <%for (var i = 0;i < listCarReserved.length;i++) {%>
+                                                                        <form action="/user/abort" method="POST" onsubmit="return confirmCancel();">
+                                                                                <tr>
+                                                                                        <input type="hidden" name="orderid" value="<%= listCarReserved[i]._id%>">
+                                                                                        <input type="hidden" name="carid" value="<%= listCarReserved[i].carID%>">
+                                                                                        <td>
+                                                                                                <%= listCarReserved[i].pickupAddr%>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                                <%= listCarReserved[i].dropoffAddr%>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                                <%= listCarReserved[i].pickupDate%>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                                <%= listCarReserved[i].dropoffDate%>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                                <%= listCarReserved[i].pickupTime%>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                                <%= listCarReserved[i].dropoffTime%>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                                <%= listCarReserved[i].paymentOption%>
+                                                                                        </td>
+                                                                                        <% if (listCarReserved[i].processed !== true){%>
+                                                                                                <td>
+                                                                                                        <img class="reserved-icon" src="https://cdn2.iconfinder.com/data/icons/color-svg-vector-icons-part-2/512/erase_delete_remove_wipe_out-512.png">
+                                                                                                </td>
+                                                                                                <td>
+                                                                                                        <button type="submit" class="btn btn-primary">Cancel</button>
+                                                                                                </td>
+                                                                                                <%} else {%>
+                                                                                                        <td>
+                                                                                                                <img class="reserved-icon" src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/check-circle-green-512.png">
+                                                                                                        </td>
+                                                                                                        <%}%>
+
+                                                                                </tr>
+                                                                        </form>
+                                                                        <%}}%>
+                                        </tbody>
+                                </table>
+                        </div>
+                </div>
+                <% include ./partials/contact%>
+        </main>
+        <footer>
+                <% include ./partials/footer%>
+        </footer>
+</body>
+
+</html>

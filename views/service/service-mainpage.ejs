@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%include ../partials/head %>
+        <title>Services</title>
+        <!-- Service CSS -->
+        <link rel="stylesheet" href="/stylesheets/service.css" />
+</head>
+
+<body>
+    <%let serviceIndex = 0;%>
+        <header>
+            <%include ../partials/header %>
+        </header>
+        <main>
+            <!-- Title -->
+            <%include ./service-title%>
+
+                <!-- Advantage -->
+                <%include ./service-advantage%>
+
+                    <!-- Services -->
+                    <%include ./service-service%>
+
+                        <!-- Contact -->
+                        <%include ../partials/contact %>
+        </main>
+        <footer>
+            <%include ../partials/footer %>
+        </footer>
+</body>
+
+</html>

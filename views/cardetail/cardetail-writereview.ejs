@@ -1,0 +1,135 @@
+<div class="row">
+    <div class="col-lg-12 cardetail-writereview-title">
+        <h5>
+            <b>Write a Review</b>
+        </h5>
+    </div>
+</div>
+<form action="/review/create/<%=car._id%>" method="POST">
+    <div class="row">
+        <div class="col-lg-12 cardetail-writereview-review">
+            <b>Your Rating: </b>
+            <div class="row  cardetail-writereview-ranks">
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-lg-4 writereview-rank-title">DRIVING</div>
+                        <div class="col-lg-8">
+                            <fieldset class="rating">
+                                <input type="radio" id="make-drivingstar5" name="drivingRate" value="5" />
+                                <label class="full" for="make-drivingstar5" title="Awesome - 5 drivingstars"></label>
+                                <input type="radio" id="make-drivingstar4half" name="drivingRate" value="4.5" />
+                                <label class="half" for="make-drivingstar4half" title="Pretty good - 4.5 drivingstars"></label>
+                                <input type="radio" id="make-drivingstar4" name="drivingRate" value="4" />
+                                <label class="full" for="make-drivingstar4" title="Pretty good - 4 drivingstars"></label>
+                                <input type="radio" id="make-drivingstar3half" name="drivingRate" value="3.5" />
+                                <label class="half" for="make-drivingstar3half" title="Meh - 3.5 drivingstars"></label>
+                                <input type="radio" id="make-drivingstar3" name="drivingRate" value="3" />
+                                <label class="full" for="make-drivingstar3" title="Meh - 3 drivingstars"></label>
+                                <input type="radio" id="make-drivingstar2half" name="drivingRate" value="2.5" />
+                                <label class="half" for="make-drivingstar2half" title="Kinda bad - 2.5 drivingstars"></label>
+                                <input type="radio" id="make-drivingstar2" name="drivingRate" value="2" />
+                                <label class="full" for="make-drivingstar2" title="Kinda bad - 2 drivingstars"></label>
+                                <input type="radio" id="make-drivingstar1half" name="drivingRate" value="1.5" />
+                                <label class="half" for="make-drivingstar1half" title="Meh - 1.5 drivingstars"></label>
+                                <input type="radio" id="make-drivingstar1" name="drivingRate" value="1" />
+                                <label class="full" for="make-drivingstar1" title="Sucks big time - 1 drivingstar"></label>
+                                <input type="radio" id="make-drivingstarhalf" name="drivingRate" value="0.5" checked/>
+                                <label class="half" for="make-drivingstarhalf" title="Sucks big time - 0.5 drivingstars"></label>
+                            </fieldset>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-lg-4 writereview-rank-title">PRACTICALITY</div>
+                        <div class="col-lg-8">
+                            <fieldset class="rating">
+                                <input type="radio" id="make-practicalitystar5" name="practicalityRate" value="5" />
+                                <label class="full" for="make-practicalitystar5" title="Awesome - 5 practicalitystars"></label>
+                                <input type="radio" id="make-practicalitystar4half" name="practicalityRate" value="4.5" />
+                                <label class="half" for="make-practicalitystar4half" title="Pretty good - 4.5 practicalitystars"></label>
+                                <input type="radio" id="make-practicalitystar4" name="practicalityRate" value="4" />
+                                <label class="full" for="make-practicalitystar4" title="Pretty good - 4 practicalitystars"></label>
+                                <input type="radio" id="make-practicalitystar3half" name="practicalityRate" value="3.5" />
+                                <label class="half" for="make-practicalitystar3half" title="Meh - 3.5 practicalitystars"></label>
+                                <input type="radio" id="make-practicalitystar3" name="practicalityRate" value="3" />
+                                <label class="full" for="make-practicalitystar3" title="Meh - 3 practicalitystars"></label>
+                                <input type="radio" id="make-practicalitystar2half" name="practicalityRate" value="2.5" />
+                                <label class="half" for="make-practicalitystar2half" title="Kinda bad - 2.5 practicalitystars"></label>
+                                <input type="radio" id="make-practicalitystar2" name="practicalityRate" value="2" />
+                                <label class="full" for="make-practicalitystar2" title="Kinda bad - 2 practicalitystars"></label>
+                                <input type="radio" id="make-practicalitystar1half" name="practicalityRate" value="1.5" />
+                                <label class="half" for="make-practicalitystar1half" title="Meh - 1.5 practicalitystars"></label>
+                                <input type="radio" id="make-practicalitystar1" name="practicalityRate" value="1" />
+                                <label class="full" for="make-practicalitystar1" title="Sucks big time - 1 practicalitystar"></label>
+                                <input type="radio" id="make-practicalitystarhalf" name="practicalityRate" value="0.5" checked />
+                                <label class="half" for="make-practicalitystarhalf" title="Sucks big time - 0.5 practicalitystars"></label>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-lg-4 writereview-rank-title">CAR INTERIOR</div>
+                        <div class="col-lg-8">
+                            <fieldset class="rating">
+                                <input type="radio" id="make-interiorstar5" name="interiorRate" value="5" />
+                                <label class="full" for="make-interiorstar5" title="Awesome - 5 interiorstars"></label>
+                                <input type="radio" id="make-interiorstar4half" name="interiorRate" value="4.5" />
+                                <label class="half" for="make-interiorstar4half" title="Pretty good - 4.5 interiorstars"></label>
+                                <input type="radio" id="make-interiorstar4" name="interiorRate" value="4" />
+                                <label class="full" for="make-interiorstar4" title="Pretty good - 4 interiorstars"></label>
+                                <input type="radio" id="make-interiorstar3half" name="interiorRate" value="3.5" />
+                                <label class="half" for="make-interiorstar3half" title="Meh - 3.5 interiorstars"></label>
+                                <input type="radio" id="make-interiorstar3" name="interiorRate" value="3" />
+                                <label class="full" for="make-interiorstar3" title="Meh - 3 interiorstars"></label>
+                                <input type="radio" id="make-interiorstar2half" name="interiorRate" value="2.5" />
+                                <label class="half" for="make-interiorstar2half" title="Kinda bad - 2.5 interiorstars"></label>
+                                <input type="radio" id="make-interiorstar2" name="interiorRate" value="2" />
+                                <label class="full" for="make-interiorstar2" title="Kinda bad - 2 interiorstars"></label>
+                                <input type="radio" id="make-interiorstar1half" name="interiorRate" value="1.5" />
+                                <label class="half" for="make-interiorstar1half" title="Meh - 1.5 interiorstars"></label>
+                                <input type="radio" id="make-interiorstar1" name="interiorRate" value="1" />
+                                <label class="full" for="make-interiorstar1" title="Sucks big time - 1 interiorstar"></label>
+                                <input type="radio" id="make-interiorstarhalf" name="interiorRate" value="0.5" checked/>
+                                <label class="half" for="make-interiorstarhalf" title="Sucks big time - 0.5 interiorstars"></label>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row make-review-form">
+                <div class="col-lg-12">                              
+                    <%if (typeof(user) === 'undefined') {%>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <b>YOUR NAME</b>
+                                <br/>
+                                <input class="form-control" name="gname" type="text" required/>
+                            </div>
+                            <div class="col-lg-4">
+                                <b>EMAIL ADDRESS</b>
+                                <br/>
+                                <input class="form-control" name="gemail" type="email" required/>
+                            </div>
+                            <div class="col-lg-4">
+                                <b>WEBSITE</b>
+                                <br/>
+                                <input class="form-control" name="gweb" type="text" required/>
+                            </div>
+                        </div>
+                        <%}%>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <b>COMMENT</b>
+                                    <br/>
+                                    <textarea class="form-control" name="comment" id="review-comment" required></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" id="review-form-submit">SUBMIT NOW</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

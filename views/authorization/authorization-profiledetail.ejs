@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%include ../partials/head%>
+        <link rel="stylesheet" href="/stylesheets/userinfo.css">
+        <title>Your Profile</title>
+</head>
+
+<body>
+    <header>
+        <%include ../partials/header%>
+    </header>
+    <main>
+        <div class="container user-profile-c">
+            <div class="row">
+                <div class="col-lg-3">
+                    <h2>Your Profile's Detail</h2>
+                </div>
+                <div class="col-lg-9 user-profile-img">
+                    <%if (user.facebook) {%>
+                        <img src="<%=user.facebook.image%>" />
+                        <%} else {%>
+                            <img src="http://www.cando.org/wp-content/uploads/2014/11/Facebook-no-profile-picture-icon-620x389-e1416282288251.jpg" />
+                            <%}%>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">Email:</div>
+                <div class="col-lg-6">
+                    <%if (user.facebook) {%>
+                        <%if (user.facebook.email) {%>
+                            <%=user.facebook.email%>
+                                <%} else {%>
+                                    You haven't updated your email yet!
+                                    <%}} else {%>
+                                        <%=user.email%>
+                                            <%}%>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">Name:</div>
+                <div class="col-lg-6">
+                    <%if (user.facebook) {%>
+                        <%=user.facebook.name%>
+                            <%} else {%>
+                                <%=user.name%>
+                                    <%}%>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">Gender:</div>
+                <div class="col-lg-6">
+                    <%if (user.male) {%>
+                        Male
+                        <%} else {
+                            if (user.male === false){%>
+                            Female
+                            <%} else {%>
+                                You haven't updated your gender yet!
+                                <%}}%>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">Phone Number:</div>
+                <div class="col-lg-6">
+                    <%if (user.phone){%>
+                        <%=user.phone%>
+                            <%} else {%>
+                                You haven't updated your phone number yet!
+                                <%}%>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">Nationality:</div>
+                <div class="col-lg-6">
+                    <%if (user.nationality){%>
+                        <%=user.nationality%>
+                            <%} else {%>
+                                You haven't updated your nationality yet!
+                                <%}%>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">Birthday:</div>
+                <div class="col-lg-6">
+                    <%if (user.birthday){
+                        var bd = new Date(user.birthday.toString());
+                        var year = bd.getFullYear();
+                        var month = bd.getMonth()+1;
+                        var day = bd.getDate();
+                        if (day < 10) {
+                            day = '0' + day;
+                        }
+                        if (month < 10) {
+                            month = '0' + month;
+                        }%>
+                        <%=day%>-<%=month%>-<%=year%>
+                        <%} else {%>
+                            You haven't updated your birthday yet!
+                            <%}%>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    <a href="/user/addinfo">Update your profile</a>
+                </div>
+                <div class="col-lg6">
+                    <a href="/user/reserved">View your orders</a>
+                </div>
+            </div>
+        </div>
+        <!-- Contact -->
+        <%include ../partials/contact%>
+    </main>
+    <footer>
+        <%include ../partials/footer%>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+/*~~~~~~~~~~~~~~~~~~ Specified CSS - ... ~~~~~~~~~~~~~~~~~~~~*/
+#line_break {
+    border: 1px solid #ededed;  
+}
+
+.card {
+     margin-bottom: 15px;
+}
+
+.justify-content-end button{
+    margin: 30px;
+    padding: 15px;
+}
+
+#reserved {
+    background-color: #FFD300;
+    border: none;
+} 
+
+#cancel {
+    background-color: #333333;
+    border: none;
+}
+
+#group {
+    margin: 40px;
+}
+
+#group .row {
+    margin: 10px;
+}
+
+#similarCar .carousel-inner {
+    margin-bottom: 50px;
+}
+
+#similarCar .carousel-indicators {
+    bottom: -100px;
+    padding-bottom: 40px;
+}
+
+#similarCar .carousel-indicators  li {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin: 10px;
+    text-indent: 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    background-color: lightgray;
+}
+
+#similarCar .carousel-indicators .active {
+    width: 15px;
+    height: 15px;
+    margin: 10px;
+    background-color: grey;
+  }
+
+  .reserved-icon {
+      height: 20px;
+      width: 20px;
+  }

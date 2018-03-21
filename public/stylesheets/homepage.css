@@ -1,0 +1,859 @@
+/*~~~~~~~~~~~~~~~~~~ Specified CSS - Homepage ~~~~~~~~~~~~~~~~~~~~*/
+
+/*Homepage- homefooter*/
+.cf-homefooter {
+    background-image: url(https://latestautocar.com/wp-content/uploads/2017/04/Luxury-Car-Wallpaper-Nexus-5-with-Image-Car-of-Car-Wallpaper-Nexus-5-at-Design.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100% 100%;
+    padding-top: 300px;
+    padding-bottom: 300px;
+  }
+  
+  .homefooter-search-top {
+    background-color: rgb(81, 83, 83);
+  }
+  
+  .homefooter-search-top img {
+    margin-top: 40px;
+    margin-left: 10px;
+    height: 50px;
+    width: 50px;
+  }
+  
+  .homefooter-search-title {
+    padding-top:30px;
+    padding-bottom: 30px;
+  }
+  
+  .homefooter-search-title h3 {
+    color: rgb(255, 217, 0);
+  }
+  
+  .homefooter-search-title h6 {
+    color: rgb(192, 190, 178);
+  }
+  
+  .homefooter-search-formfield {
+    background-color: rgb(30, 31, 31);
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .homefooter-search-formfield h6,input {
+    margin-top: 10px;
+  }
+  
+  .homefooter-search-submit {
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+  }
+  
+  .homefooter-search-submit span{
+    color: black;
+    font-size: 13px;
+    position: relative;
+    bottom: -15px;  
+  }
+  
+  .homefooter-search-submit button {
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    border-style: none;
+    background-color: rgb(255, 196, 0);
+    color: white;
+    font-weight: bolder; 
+  }
+  
+  .homefooter-search-submit img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .homefooter-contact {
+    padding-top: 20px;
+  }
+  
+  .homefooter-contact img {
+    height: 15px;
+    width: 15px;
+  }
+  
+  .homefooter-contact b{
+    color: white;
+  }
+  
+  .homefooter-contact h6 {
+    color: white;
+    margin-top: 30px;
+    font-weight: bolder;
+  }
+  
+  .homefooter-contact h3{
+    color: rgb(255, 196, 0);
+  }
+  
+  .homefooter-contact ul {
+    color: rgb(126, 128, 128);
+    list-style-position: inside;
+    padding-left: 0px;
+    list-style-image: url(https://d3rhpu6w6k3vrv.cloudfront.net/static/images/tw.png);
+    
+  }
+
+  .homefooter-contact a {
+    color: rgb(126, 128, 128);
+    text-decoration: none;
+  }
+  
+  .homefooter-open-location {
+    margin-top: 50px;
+    padding-top: 150px;
+    border-top-style: solid;
+    border-width: 1px;
+    border-color: rgb(67, 68, 68); 
+    color: white;
+    font-weight: bolder;
+    font-size: 15px;
+  }
+  
+  .homefooter-open-location img{
+    width: 15px;
+    height: 15px;
+  }
+  
+  .homefooter-open-location span {
+    position: relative;
+    z-index: 2;
+  }
+  
+  #homefooter-map {
+    height: 250px;
+    width: 250px;
+    position: relative;
+    z-index: 1;
+    right: -230px;  
+  }
+  
+  
+  
+  /*Homepage CSS*/
+  
+  /*Homepage - Seach Car Now*/
+  
+  #findcarnow-homepage {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100% 100%;
+  }
+  
+  #carinfo {
+    text-align: right;
+  }
+  
+  #carinfocol h1 {
+    margin-top: 20%;
+  }
+  
+  #carbrand {
+    font-size: 50px;
+    font-weight: bolder;
+    color: white;
+  }
+  
+  #carclass {
+    font-size: 50px;
+    color: yellow;
+    font-weight: lighter;
+  }
+  
+  .priceinfo {
+    font-size: 30px;
+    color: white;
+    font-weight: lighter;
+  }
+  
+  #pricevalue {
+    font-size: 30px;
+    color: white;
+    font-weight: bolder;
+  }
+  
+  #reservelink {
+    float: right;
+    margin-top: 5%;
+    width: 20%;
+    height: 70px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
+    text-align: center;
+    line-height: 70px;
+    color: white;
+    font-weight: bolder;
+  }
+  
+  #cartypes120 {
+    color: white;
+    font-size: 20px;
+  }
+  
+  #searchyour {
+    color: yellow;
+  }
+  
+  #bestcars {
+    color: yellow;
+    font-weight: bolder;
+  }
+  
+  #announce {
+    margin-top: 25%;
+  }
+  
+  #announcecol h1, h2 {
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+  
+  #borderline {
+    float: left;
+    width: 5%;
+    border-bottom-style: solid;
+    border-bottom-color: yellow;
+  }
+  
+  #searchbarbg {
+    background-color: black;
+    opacity: 0.5;
+    padding-bottom: 50px;
+    padding-top: 50px;
+  }
+  
+  #carsearchbar, #rowsearchbar {
+    height: 100%;
+  }
+  
+  .searchtitle {
+    color: white;
+    opacity: 1;
+    font-size: 15px;
+    font-weight: bolder;
+  }
+  
+  #fields button {
+    opacity: 1;
+    width: 200px;
+    background-color: white;
+    color: gray;
+  }
+  
+  #searchbutton {
+    opacity: 1;
+    background-color: yellow;
+    height: 40px;
+    margin-top: 25px;
+    color: white;
+    font-weight: bolder;
+    border-style: none;
+    width: 200px;
+  }
+  
+  /*Homepage - Advantages*/
+  
+  #advantagetitle div {
+    padding-top: 150px;
+  }
+  
+  #adleftcol {
+    text-align: right;
+  }
+  
+  #h1royalcars {
+    font-weight: lighter;
+  }
+  
+  #h1advantages {
+    font-weight: bolder;
+  }
+  
+  #advantagesline div {
+    margin-top: 50px;
+    padding-top: 30px;
+    margin-bottom: 50px;
+    background-color: honeydew;
+    transition: 0.2s;
+    height: 200px;
+  }
+  
+  #advantagesline div:hover {
+    background-color: yellow;
+    color: white;
+  }
+  
+  #advantagedetail-advantage {
+    text-align: center;
+  }
+  
+  #advantagedetail-advantage h5{
+    font-weight: bold;
+  }
+  
+  #advantagedetail-advantage img {
+    display: block;
+    margin: 0 auto;
+    height: 50px;
+    width: 50px;
+  }
+  
+  /*Homepage - Know more about us*/
+  
+  #cf-knowmoreaboutus {
+    margin-top: 5%;
+    background-image: url(http://8-themes.com/wp-content/uploads/2015/11/Auto___Audi_The_two-door_black_Audi_in_the_forest_096887_.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100% 100%;
+  }
+  
+  #knowmoreaboutus {
+    color: white;
+  }
+  
+  #title-knowmoreaboutus {
+    padding-top: 150px;
+  }
+  
+  #who, #are {
+    color: yellow;
+    font-weight: lighter;
+  }
+  
+  #royalcars {
+    color: yellow;
+    font-weight: bolder;
+  }
+  
+  #aboutus-info div {
+    margin-top: 50px;
+  }
+  
+  #left-info {
+    color: grey;
+    font-weight: lighter;
+    border-right-style: solid;
+    border-right-color: yellow;
+  }
+  
+  #right-info {
+    color: white;
+    font-weight: bolder;
+  }
+  
+  #aboutus-advantages {
+    margin-top: 10%;
+  }
+  
+  #aboutus-advantages div {
+    border-style: solid;
+    border-color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    color: white;
+    font-weight: bolder;
+    transition: 0.2s;
+  }
+  
+  #aboutus-advantages div:hover {
+    color: black;
+    background-color: white;
+  }
+  
+  #aboutus-advantages-content {
+    color: grey;
+    font-weight: lighter;
+  }
+  
+  .aboutus-links {
+    float: right;
+    margin-top: 100px;
+    margin-left: 50px;
+    margin-bottom: 150px;
+    width: 200px;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    color: white;
+    font-weight: bolder;
+    background-color: grey;
+    transition: 0.2s;
+  }
+  
+  .aboutus-links:hover {
+    background-color: yellow;
+  }
+  
+  #advantagedetail-aboutus img{
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+  }
+  
+  #advantagedetail-aboutus h5{
+    margin-top: 10px;
+  }
+  
+  
+  /*Homepage - Featured cars*/
+  
+  .c-featurecars {
+    padding-bottom: 200px;
+  }
+  
+  #cars-title {
+    margin-top: 15%;
+  }
+  
+  #cars-title div {
+    text-align: center;
+  }
+  
+  #cars-title h6{
+    color: black;
+  }
+  
+  #getour {
+    font-weight: lighter;
+  }
+  
+  #bestoffers {
+    font-weight: bolder;
+  }
+  
+  #cars-type {
+    margin-top: 5%;
+  }
+  
+  .cars-type-buttons {
+    height: 50px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    background-color: white;
+    color: grey;
+  }
+  
+  .cars-type-buttons:hover {
+    background-color: yellow;
+    color: white;
+    border-color: yellow;
+  }
+  
+  .car-show {
+    margin-top: 50px;
+  }
+  
+  .carousel-inner {
+    margin-bottom: 50px;
+  }
+  
+  .carousel-indicators {
+    bottom: -100px;
+  }
+  
+  .carousel-indicators li {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin: 10px;
+    text-indent: 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    background-color: lightgray;
+  }
+  
+  .carousel-indicators .active {
+    width: 15px;
+    height: 15px;
+    margin: 10px;
+    background-color: grey;
+  }
+  
+  .car-show-carinfo {
+    text-align: center;
+    background-color: aliceblue;
+    cursor: pointer;
+    padding-bottom: 50px;
+  }
+  
+  .car-show-img {
+    display: block;
+    margin: 0 auto;
+    height: 250px;
+    width: 100%;
+    transition: 0.2s;
+  }
+  
+  .car-show-brand {
+    color: black;
+    font-weight: bolder;
+  }
+  
+  .car-show-class {
+    color: yellow;
+    font-weight: lighter;
+  }
+  
+  .car-show-carservice {
+    float: left;
+    background-color: rgb(223, 219, 219);
+    width: 40%;
+    margin-left: 1%;
+    margin-bottom: 5%;
+  }
+  
+  .car-show-carservice img {
+    height: 20px;
+    width: 20px;
+    float: left;
+  }
+  
+  .car-show-button {
+    float: left;
+    width: 100%;
+    height: 50px;
+    background-color: aqua;
+    border-style: none;
+    background-color: yellow;
+    color: white;
+    display: none;
+  }
+  
+
+  .car-show-info-container:hover .car-show-button {
+    display: block;
+  }
+  
+  .car-show-carinfo:hover>img {
+    opacity: 0.5;
+  }
+  
+  .car-show-carinfo:hover .zoomimg {
+    display: block;
+    left: 110px;
+    bottom: -140px;
+  }
+  
+  .zoomimg img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .zoomimg {
+    position: relative;
+    border-style: none;
+    z-index: 1;
+    display: none;
+  }
+  
+  .search-result-cars-year,
+  .search-result-cars-fuel,
+  .search-result-cars-cc, 
+  .search-result-cars-auto  {
+      background-color: grey;
+      text-align: center;
+      font-size: 9px;
+      height: 30px;    
+      line-height: 30px;
+  }
+  
+  .search-result-cars-year {
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      border-right-style: solid;
+      border-color: white;
+      border-width: 0.2px;
+  }
+  
+  .search-result-cars-auto {
+      border-right-style: solid;
+      border-color: white;
+      border-width: 0.2px;
+  }
+  
+  .search-result-cars-fuel {
+      border-right-style: solid;
+      border-color: white;
+      border-width: 0.2px;
+  }
+  
+  .search-result-cars-cc {
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+  }
+  
+  .search-result-cars-specs {
+      width: 95%;
+      margin: auto;
+      margin-top: 30px;
+  }
+
+  /*Homepage - Drivers*/
+  
+  #driver-view {
+    margin-top: 5%;
+    background-image: url(http://www.autodatz.com/wp-content/uploads/2017/05/Car-Wallpapers-With-Black-Background-31-with-Car-Wallpapers-With-Black-Background.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100% 100%;
+    padding-bottom: 200px;
+  }
+  
+  .driver-info-row {
+    margin-top: 5%;
+  }
+  
+  .driver-info {
+    background-color: white;
+  }
+  
+  .driver-decorate-border-up {
+    height: 50px;
+  }
+  
+  .driver-decorate-border {
+    height: 50px;
+    border-left-style: solid;
+    border-width: 5px;
+    border-color: yellow;
+    position: relative;
+    left: -15px;
+  }
+  
+  .driver-info-info {
+    padding-top: 50px;
+    white-space: nowrap;
+  }
+  
+  .driver-info-info h4 {
+    font-weight: bolder;
+  }
+  
+  .driver-info-info h6 {
+    margin-top: 20px;
+    font-weight: lighter;
+    font-size: 12px;
+    color: grey;
+  }
+  
+  .driver-title {
+    text-align: center;
+  }
+  
+  #driver-title-h3 {
+    color: white;
+    margin-top: 200px;
+  }
+  
+  #driver-title-h1 {
+    color: yellow;
+  }
+  
+  .driver-social-link {
+    margin-top: 30px;
+    opacity: 0.3;
+  }
+  
+  .driver-info-img {
+    margin-left: auto;
+  }
+  
+  .driver-image {
+    width: 140px;
+    height: 250px;
+  }
+  
+  .driver-social-link img {
+    width: 20px;
+    height: 20px;
+    margin-left: 3px;
+  }
+  
+  .driver-info-info::before{
+    content : "";
+    position: absolute;
+    left    : 0;
+    top  : 0;
+    height  : 30px;
+    width   : 100%;  /* or 100px */
+    border-left:3px solid rgb(255, 187, 0);
+    margin-top: 20px;
+}
+
+
+  /*Homepage - Find Car Now*/
+  
+  .cf-findcarnow {
+    background-image: url(https://thenextweb.com/wp-content/blogs.dir/1/files/2014/02/OpenMaps.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100% 100%;
+    padding-bottom: 150px;
+    padding-top: 800px;
+  }
+  
+  .c-findcarnow {
+    background-image: url(http://carwow-uk-wp-3.imgix.net/A177034_large.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100% 100%;
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-bottom: 50px;
+  }
+  
+  .find-car-on-map {
+    margin-top: 50px;
+  }
+  
+  .find-car-now-button {
+    padding-top: 25px;
+  }
+  
+  .find-car-now-button button {
+    border-style: none;
+    height: 50px;
+    width: 200px;
+    font-weight: bolder;
+    color: white;
+    background-color: yellow;
+  }
+  
+  .find-car-title {
+    color:white;
+  }
+  
+  .find-car-field {
+    height: 50px;
+  }
+  
+  .find-car-border {
+    border-bottom-style: solid;
+    border-color: yellow;
+    border-width: 2px;
+  }
+  
+  .find-car-header {
+    color: yellow;
+  }
+  
+  /*Homepage - FAQ*/
+  
+  .faq-tab-button {
+    border-style: none;
+    white-space: nowrap;
+  }
+  
+  .faq-tab-button img{
+    height: 20px;
+    width: 20px;
+  }
+  
+  .faq-cf {
+    padding-top: 200px;
+    padding-bottom: 300px;
+  }
+  
+  .faq-decorate-border {
+    border-bottom-style: solid;
+    border-width: 2px;
+    border-color: yellow;
+  }
+  
+  .faq-show-hide-answers img{
+    width: 20px;
+    height: 20px;
+  }
+  
+  #faq-account, #faq-tech, #faq-feature {
+    margin-top: 50px;
+  }
+  
+  .faq-show-hide-answers {
+    border-style: solid;
+    border-right-style: none;
+    border-width: 0.1px;
+    border-color: lightgray;
+    height: 60px;
+    line-height: 60px;
+    background-color: rgb(221, 222, 223);
+    opacity: 0.3;
+    padding-left: 30px;
+  }
+  
+  .faq-questions {
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: lightgray;
+    padding-left: 20px;
+    height: 60px;
+    line-height: 60px;
+    font-weight: bolder;
+  }
+  
+  .faq-answers {
+    padding-left: 50px;
+    background-color: rgb(221, 222, 223);
+    display: none;
+  }
+  
+  .hide-answer {
+    display:none;
+  }
+  
+  /*Homepage - News*/
+  #news-container {
+    padding-top: 100px;
+    padding-bottom: 200px;
+  }
+  
+  .articles-row {
+    margin-top: 50px;
+  }
+  
+  .articles-img {
+    width: 100%;
+    height: 200px;
+  }
+  
+  .articles-time {
+    margin-top: 40px;
+    color: rgb(255, 230, 0);
+  }
+  
+  .articles-content {
+    margin-top: 20px;
+  }
+  
+  .articles-title {
+    margin-top: 20px;
+    font-weight: bolder;
+    border-left-style: solid;
+    border-color: rgb(255, 196, 0);
+  }
+  
+  .articles-button {
+    opacity: 0.5;
+    width: 100px;
+    height: 15px;
+    font-size: 10px;
+  }
+  
+  

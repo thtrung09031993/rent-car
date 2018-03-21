@@ -1,0 +1,81 @@
+<!-- Search car now -->
+<div id="findcarnow-homepage" class="container-fluid" style="background: url(<%=cars[0].image[0]%>)">
+    <div class="container" id="carinfocontainer">
+        <div class="row" id="carinfo">
+            <div class="col-lg-12" id="carinfocol">
+                <h1>
+                    <span id="carbrand">
+                        <%=cars[0].brand%>
+                    </span>
+                    <span id="carclass">
+                        <%=cars[0].class%>
+                    </span>
+                </h1>
+                <h2>
+                    <span class="priceinfo">FOR RENT</span>
+                    <span id="pricevalue">$
+                        <%=cars[0].rentalPrice%>
+                    </span>
+                    <span class="priceinfo">PER DAY</span>
+                </h2>
+                <a href="/order/<%=cars[0]._id%>">
+                    <div id="reservelink">
+                        RESERVE NOW
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row" id="announce">
+            <div class="col-lg-12" id="announcecol">
+                <h2 id="cartypes120">120+ CAR TYPES & BRANDS</h2>
+                <h1>
+                    <span id="searchyour">Search Your </span>
+                    <span id="bestcars">Best Cars.</span>
+                </h1>
+            </div>
+        </div>
+        <div class="row" id="border">
+            <div id="borderline"></div>
+        </div>
+    </div>
+    <div class="container-fluid" id="searchbarbg">
+        <div class="container" id="carsearchbar">
+            <form action="/car/search" method="POST">
+                <div class="row" id="rowsearchbar">
+                    <div class="col-lg-3" id="searchbarcol">
+                        <h6 class="searchtittle">CAR BRAND</h6>
+                        <select name="carbrand" class="form-control" id="car-brand">
+                            <option>Any brand</option>
+                            <%brands.forEach(function(brand) {%>
+                                <option>
+                                    <%=brand%>
+                                </option>
+                                <%});%>
+                        </select>
+                    </div>
+                    <div class="col-lg-3" id="searchbarcol">
+                        <h6 class="searchtittle">CAR TYPE</h6>
+                        <select name="cartype" class="form-control" id="car-type">
+                            <option>Any type</option>
+                            <%types.forEach(function(type) {%>
+                                <option>
+                                    <%=type%>
+                                </option>
+                                <%});%>
+                        </select>
+                    </div>
+                    <div class="col-lg-3" id="searchbarcol">
+                        <h6 class="searchtittle">CAR PRICE</h6>
+                        <select name="carprice" class="form-control" id="car-price">
+                            <option>Low-High</option>
+                            <option>High-Low</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-3" id="searchbarcol">
+                        <button type="submit" id="searchbutton">SEARCH CAR NOW</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

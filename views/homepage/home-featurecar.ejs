@@ -1,0 +1,954 @@
+<!-- Feature cars -->
+<div class="container c-featurecars">
+    <div class="row" id="cars-title">
+        <div class="col-lg-12">
+            <h6>FEATURED CARS</h6>
+            <h1>
+                <span id="getour">Get Our</span>
+                <span id="bestoffers">Best Offers.</span>
+            </h1>
+        </div>
+    </div>
+    <div class="row justify-content-around" id="cars-type">
+        <button class="col-lg-2 cars-type-buttons" id="popularCarButton" onclick="popularClick()">Popular Cars</button>
+        <button class="col-lg-2 cars-type-buttons" id="businessCarButton" onclick="businessClick()">Business Cars</button>
+        <button class="col-lg-2 cars-type-buttons" id="familyCarButton" onclick="familyClick()">Family Cars</button>
+        <button class="col-lg-2 cars-type-buttons" id="sportCarButton" onclick="sportClick()">Sport Cars</button>
+        <button class="col-lg-2 cars-type-buttons" id="limitedCarButton" onclick="limitedClick()">Limited Edition Cars</button>
+    </div>
+
+    <!-- make cars go to specific types  -->
+    <%
+    for (var i = 0; i < cars.length; i++)   {
+        if (cars[i].type === 'popular'){
+            popularCars.push(cars[i]);
+        }
+        if (cars[i].type === 'business'){
+            businessCars.push(cars[i]);
+        }
+        if (cars[i].type === 'sport'){
+            sportCars.push(cars[i]);
+        }
+        if (cars[i].type === 'family'){
+            familyCars.push(cars[i]);
+        }
+        if (cars[i].type === 'limited'){
+            limitedCars.push(cars[i]);
+        }
+    }         
+%>
+
+        <!-- popular cars show -->
+        <div id="popular-show" class="carousel slide car-show" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <!-- calculate the slide numbers to contain cars -->
+                <%                        
+            slideCount = 1;
+            if (popularCars.length > 3){
+                for (var i = 3; i < popularCars.length; i++){
+                    if ( i % 3 === 0){
+                        slideCount++;
+                    }
+                }
+        } %>
+                    <li data-target="#popular-show" data-slide-to="0" class="active"></li>
+                    <%for (var i = 1; i < slideCount; i++){%>
+                        <li data-target="#popular-show" data-slide-to="<%=i%>"></li>
+                        <%};%>
+            </ol>
+            <div class="carousel-inner">
+                <!-- check the slide numbers for approriate carousel designing -->
+                <%if (slideCount === 1) {%>
+                    <!-- slide numbers = 1 <=> only 1 active slide -->
+                    <div class="carousel-item active">
+                        <div class="row justify-content-around">
+                            <%for (var i = 0; i < popularCars.length; i++) {%>
+                                <div class="col-lg-3 car-show-info-container">
+                                    <div class="car-show-carinfo">
+                                        <button class="zoomimg" onclick="zoomImg('<%=popularCars[i].image[0]%>')">
+                                            <img src="https://cdn0.iconfinder.com/data/icons/huge-business-icons/512/Zoom_in.png" />
+                                        </button>
+                                        <img class="car-show-img" src="<%=popularCars[i].image[0]%>" />
+                                        <h1>
+                                            <span class="car-show-brand">
+                                                <%=popularCars[i].brand%>
+                                            </span>
+                                            <span class="car-show-class">
+                                                <%=popularCars[i].class%>
+                                            </span>
+                                        </h1>
+                                        <p>Start at
+                                            <b>
+                                                <%=popularCars[i].rentalPrice%> USD </b>per day</p>
+                                        <br/>
+                                        <div class="row search-result-cars-specs">
+                                            <div class="col-lg-3 search-result-cars-year">
+                                                <%=popularCars[i].publishedYear%>
+                                            </div>
+                                            <div class="col-lg-3 search-result-cars-auto">
+                                                <%if (popularCars[i].automatic) {%>
+                                                    AUTO
+                                                    <%} else {%>
+                                                        MANU
+                                                        <%}%>
+                                            </div>
+                                            <div class="col-lg-3 search-result-cars-fuel">
+                                                <%=popularCars[i].fuel%>
+                                            </div>
+                                            <div class="col-lg-3 search-result-cars-cc">
+                                                <%=popularCars[i].cc%> CC
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <form action="/order/<%=popularCars[i]._id%>" method="GET">
+                                        <button class="car-show-button">
+                                            RENT THIS CAR
+                                        </button>
+                                    </form>
+                                </div>
+                                <%};%>
+                        </div>
+                    </div>
+                    <%} else {%>
+                        <!-- slide numbers > 1, first slide is of index 0 - 2, from second is index 3 start -->
+                        <div class="carousel-item active">
+                            <div class="row justify-content-around">
+                                <%for (var i = 0; i < 3; i++) {%>
+                                    <div class="col-lg-3 car-show-info-container">
+                                        <div class="car-show-carinfo">
+                                            <button class="zoomimg" onclick="zoomImg('<%=popularCars[i].image[0]%>')">
+                                                <img src="https://cdn0.iconfinder.com/data/icons/huge-business-icons/512/Zoom_in.png" />
+                                            </button>
+                                            <img class="car-show-img" src="<%=popularCars[i].image[0]%>" />
+                                            <h2>
+                                                <span class="car-show-brand">
+                                                    <%=popularCars[i].brand%>
+                                                </span>
+                                                <span class="car-show-class">
+                                                    <%=popularCars[i].class%>
+                                                </span>
+                                            </h2>
+                                            <p>Start at
+                                                <b>
+                                                    <%=popularCars[i].rentalPrice%> USD </b>per day</p>
+                                            <br/>
+                                            <div class="row search-result-cars-specs">
+                                                <div class="col-lg-3 search-result-cars-year">
+                                                    <%=popularCars[i].publishedYear%>
+                                                </div>
+                                                <div class="col-lg-3 search-result-cars-auto">
+                                                    <%if (popularCars[i].automatic) {%>
+                                                        AUTO
+                                                        <%} else {%>
+                                                            MANU
+                                                            <%}%>
+                                                </div>
+                                                <div class="col-lg-3 search-result-cars-fuel">
+                                                    <%=popularCars[i].fuel%>
+                                                </div>
+                                                <div class="col-lg-3 search-result-cars-cc">
+                                                    <%=popularCars[i].cc%> CC
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <form action="/order/<%=popularCars[i]._id%>" method="GET">
+                                            <button class="car-show-button">
+                                                RENT THIS CAR
+                                            </button>
+                                        </form>
+                                    </div>
+                                    <%};%>
+                            </div>
+                        </div>
+                        <%for (var i = 1; i < slideCount; i++) {%>
+                            <div class="carousel-item">
+                                <div class="row justify-content-around">
+                                    <%while (carIndex < popularCars.length){%>
+                                        <div class="col-lg-3 car-show-info-container">
+                                            <div class="car-show-carinfo">
+                                                <button class="zoomimg" onclick="zoomImg('<%=popularCars[i].image[0]%>')">
+                                                    <img src="https://cdn0.iconfinder.com/data/icons/huge-business-icons/512/Zoom_in.png" />
+                                                </button>
+                                                <img class="car-show-img" src="<%=popularCars[carIndex].image[0]%>" />
+                                                <h2>
+                                                    <span class="car-show-brand">
+                                                        <%=popularCars[carIndex].brand%>
+                                                    </span>
+                                                    <span class="car-show-class">
+                                                        <%=popularCars[carIndex].class%>
+                                                    </span>
+                                                </h2>
+                                                <p>Start at
+                                                    <b>
+                                                        <%=popularCars[carIndex].rentalPrice%> USD </b>per day</p>
+                                                <br/>
+                                                <div class="row search-result-cars-specs">
+                                                    <div class="col-lg-3 search-result-cars-year">
+                                                        <%=popularCars[carIndex].publishedYear%>
+                                                    </div>
+                                                    <div class="col-lg-3 search-result-cars-auto">
+                                                        <%if (popularCars[carIndex].automatic) {%>
+                                                            AUTO
+                                                            <%} else {%>
+                                                                MANU
+                                                                <%}%>
+                                                    </div>
+                                                    <div class="col-lg-3 search-result-cars-fuel">
+                                                        <%=popularCars[carIndex].fuel%>
+                                                    </div>
+                                                    <div class="col-lg-3 search-result-cars-cc">
+                                                        <%=popularCars[carIndex].cc%> CC
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <form action="/order/<%=popularCars[carIndex]._id%>" method="GET">
+                                                <button class="car-show-button">
+                                                    RENT THIS CAR
+                                                </button>
+                                            </form>
+                                        </div>
+                                        <%
+                                        if (carIndex % 3 === 2){
+                                            carIndex++;
+                                            break;
+                                        }    
+                                        carIndex++;}%>
+                                </div>
+                            </div>
+                            <%}%>
+                                <%}%>
+            </div>
+            <%slideCount = 0;
+      carIndex = 3;%>
+        </div>
+
+        <!-- business cars show -->
+        <div id="business-show" class="carousel slide car-show" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <!-- calculate the slide numbers to contain cars -->
+                <%                    
+                slideCount = 1;
+                if (businessCars.length > 3){
+                    for (var i = 3; i < businessCars.length; i++){
+                        if ( i % 3 === 0){
+                            slideCount++;
+                        }
+                    }
+            } %>
+                    <li data-target="#business-show" data-slide-to="0" class="active"></li>
+                    <%for (var i = 1; i < slideCount; i++){%>
+                        <li data-target="#business-show" data-slide-to="<%=i%>"></li>
+                        <%};%>
+            </ol>
+            <div class="carousel-inner">
+                <!-- check the slide numbers for approriate carousel designing -->
+                <%if (slideCount === 1) {%>
+                    <!-- slide numbers = 1 <=> only 1 active slide -->
+                    <div class="carousel-item active">
+                        <div class="row justify-content-around">
+                            <%for (var i = 0; i < businessCars.length; i++) {%>
+                                <div class="col-lg-3 car-show-info-container">
+                                    <div class="car-show-carinfo">
+                                        <button class="zoomimg" onclick="zoomImg('<%=businessCars[i].image[0]%>')">
+                                            <img src="https://cdn0.iconfinder.com/data/icons/huge-business-icons/512/Zoom_in.png" />
+                                        </button>
+                                        <img class="car-show-img" src="<%=businessCars[i].image[0]%>" />
+                                        <h1>
+                                            <span class="car-show-brand">
+                                                <%=businessCars[i].brand%>
+                                            </span>
+                                            <span class="car-show-class">
+                                                <%=businessCars[i].class%>
+                                            </span>
+                                        </h1>
+                                        <p>Start at
+                                            <b>
+                                                <%=businessCars[i].rentalPrice%> USD </b>per day</p>
+                                        <br/>
+                                        <div class="row search-result-cars-specs">
+                                            <div class="col-lg-3 search-result-cars-year">
+                                                <%=businessCars[i].publishedYear%>
+                                            </div>
+                                            <div class="col-lg-3 search-result-cars-auto">
+                                                <%if (businessCars[i].automatic) {%>
+                                                    AUTO
+                                                    <%} else {%>
+                                                        MANU
+                                                        <%}%>
+                                            </div>
+                                            <div class="col-lg-3 search-result-cars-fuel">
+                                                <%=businessCars[i].fuel%>
+                                            </div>
+                                            <div class="col-lg-3 search-result-cars-cc">
+                                                <%=businessCars[i].cc%> CC
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <form action="/order/<%=businessCars[i]._id%>" method="GET">
+                                        <button class="car-show-button">
+                                            RENT THIS CAR
+                                        </button>
+                                    </form>
+                                </div>
+                                <%};%>
+                        </div>
+                    </div>
+                    <%} else {%>
+                        <!-- slide numbers > 1, first slide is of index 0 - 2, from second is index 3 start -->
+                        <div class="carousel-item active">
+                            <div class="row justify-content-around">
+                                <%for (var i = 0; i < 3; i++) {%>
+                                    <div class="col-lg-3 car-show-info-container">
+                                        <div class="car-show-carinfo">
+                                            <button class="zoomimg" onclick="zoomImg('<%=businessCars[i].image[0]%>')">
+                                                <img src="https://cdn0.iconfinder.com/data/icons/huge-business-icons/512/Zoom_in.png" />
+                                            </button>
+                                            <img class="car-show-img" src="<%=businessCars[i].image[0]%>" />
+                                            <h2>
+                                                <span class="car-show-brand">
+                                                    <%=businessCars[i].brand%>
+                                                </span>
+                                                <span class="car-show-class">
+                                                    <%=businessCars[i].class%>
+                                                </span>
+                                            </h2>
+                                            <p>Start at
+                                                <b>
+                                                    <%=businessCars[i].rentalPrice%> USD </b>per day</p>
+                                            <br/>
+                                            <div class="row search-result-cars-specs">
+                                                <div class="col-lg-3 search-result-cars-year">
+                                                    <%=businessCars[i].publishedYear%>
+                                                </div>
+                                                <div class="col-lg-3 search-result-cars-auto">
+                                                    <%if (businessCars[i].automatic) {%>
+                                                        AUTO
+                                                        <%} else {%>
+                                                            MANU
+                                                            <%}%>
+                                                </div>
+                                                <div class="col-lg-3 search-result-cars-fuel">
+                                                    <%=businessCars[i].fuel%>
+                                                </div>
+                                                <div class="col-lg-3 search-result-cars-cc">
+                                                    <%=businessCars[i].cc%> CC
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <form action="/order/<%=businessCars[i]._id%>" method="GET">
+                                            <button class="car-show-button">
+                                                RENT THIS CAR
+                                            </button>
+                                        </form>
+                                    </div>
+                                    <%};%>
+                            </div>
+                        </div>
+                        <% for (var i = 1; i < slideCount; i++) {%>
+                            <div class="carousel-item">
+                                <div class="row justify-content-around">
+                                    <%while (carIndex < businessCars.length){%>
+                                        <div class="col-lg-3 car-show-info-container">
+                                            <div class="car-show-carinfo">
+                                                <button class="zoomimg" onclick="zoomImg('<%=businessCars[i].image[0]%>')">
+                                                    <img src="https://cdn0.iconfinder.com/data/icons/huge-business-icons/512/Zoom_in.png" />
+                                                </button>
+                                                <img class="car-show-img" src="<%=businessCars[carIndex].image[0]%>" />
+                                                <h2>
+                                                    <span class="car-show-brand">
+                                                        <%=businessCars[carIndex].brand%>
+                                                    </span>
+                                                    <span class="car-show-class">
+                                                        <%=businessCars[carIndex].class%>
+                                                    </span>
+                                                </h2>
+                                                <p>Start at
+                                                    <b>
+                                                        <%=businessCars[carIndex].rentalPrice%> USD </b>per day</p>
+                                                <br/>
+                                                <div class="row search-result-cars-specs">
+                                                    <div class="col-lg-3 search-result-cars-year">
+                                                        <%=businessCars[carIndex].publishedYear%>
+                                                    </div>
+                                                    <div class="col-lg-3 search-result-cars-auto">
+                                                        <%if (businessCars[carIndex].automatic) {%>
+                                                            AUTO
+                                                            <%} else {%>
+                                                                MANU
+                                                                <%}%>
+                                                    </div>
+                                                    <div class="col-lg-3 search-result-cars-fuel">
+                                                        <%=businessCars[carIndex].fuel%>
+                                                    </div>
+                                                    <div class="col-lg-3 search-result-cars-cc">
+                                                        <%=businessCars[carIndex].cc%> CC
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <form action="/order/<%=businessCars[carIndex]._id%>" method="GET">
+                                                <button class="car-show-button">
+                                                    RENT THIS CAR
+                                                </button>
+                                            </form>
+                                        </div>
+                                        <%
+                                        if (carIndex % 3 === 2){
+                                            carIndex++;
+                                            break;
+                                        }    
+                                        carIndex++;}%>
+                                </div>
+                            </div>
+                            <%}%>
+                                <%}%>
+            </div>
+            <%slideCount = 0;
+          carIndex = 3;%>
+        </div>
+
+        <!-- family cars show -->
+        <div id="family-show" class="carousel slide car-show" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <!-- calculate the slide numbers to contain cars -->
+                <%                    
+                slideCount = 1;
+                if (familyCars.length > 3){
+                    for (var i = 3; i < familyCars.length; i++){
+                        if ( i % 3 === 0){
+                            slideCount++;
+                        }
+                    }
+            } %>
+                    <li data-target="#family-show" data-slide-to="0" class="active"></li>
+                    <%for (var i = 1; i < slideCount; i++){%>
+                        <li data-target="#family-show" data-slide-to="<%=i%>"></li>
+                        <%};%>
+            </ol>
+            <div class="carousel-inner">
+                <!-- check the slide numbers for approriate carousel designing -->
+                <%if (slideCount === 1) {%>
+                    <!-- slide numbers = 1 <=> only 1 active slide -->
+                    <div class="carousel-item active">
+                        <div class="row justify-content-around">
+                            <%for (var i = 0; i < familyCars.length; i++) {%>
+                                <div class="col-lg-3 car-show-info-container">
+                                    <div class="car-show-carinfo">
+                                        <button class="zoomimg" onclick="zoomImg('<%=familyCars[i].image[0]%>')">
+                                            <img src="https://cdn0.iconfinder.com/data/icons/huge-business-icons/512/Zoom_in.png" />
+                                        </button>
+                                        <img class="car-show-img" src="<%=familyCars[i].image[0]%>" />
+                                        <h1>
+                                            <span class="car-show-brand">
+                                                <%=familyCars[i].brand%>
+                                            </span>
+                                            <span class="car-show-class">
+                                                <%=familyCars[i].class%>
+                                            </span>
+                                        </h1>
+                                        <p>Start at
+                                            <b>
+                                                <%=familyCars[i].rentalPrice%> USD </b>per day</p>
+                                        <br/>
+                                        <div class="row search-result-cars-specs">
+                                            <div class="col-lg-3 search-result-cars-year">
+                                                <%=familyCars[i].publishedYear%>
+                                            </div>
+                                            <div class="col-lg-3 search-result-cars-auto">
+                                                <%if (familyCars[i].automatic) {%>
+                                                    AUTO
+                                                    <%} else {%>
+                                                        MANU
+                                                        <%}%>
+                                            </div>
+                                            <div class="col-lg-3 search-result-cars-fuel">
+                                                <%=familyCars[i].fuel%>
+                                            </div>
+                                            <div class="col-lg-3 search-result-cars-cc">
+                                                <%=familyCars[i].cc%> CC
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <form action="/order/<%=familyCars[i]._id%>" method="GET">
+                                        <button class="car-show-button">
+                                            RENT THIS CAR
+                                        </button>
+                                    </form>
+                                </div>
+                                <%};%>
+                        </div>
+                    </div>
+                    <%} else {%>
+                        <!-- slide numbers > 1, first slide is of index 0 - 2, from second is index 3 start -->
+                        <div class="carousel-item active">
+                            <div class="row justify-content-around">
+                                <%for (var i = 0; i < 3; i++) {%>
+                                    <div class="col-lg-3 car-show-info-container">
+                                        <div class="car-show-carinfo">
+                                            <button class="zoomimg" onclick="zoomImg('<%=familyCars[i].image[0]%>')">
+                                                <img src="https://cdn0.iconfinder.com/data/icons/huge-business-icons/512/Zoom_in.png" />
+                                            </button>
+                                            <img class="car-show-img" src="<%=familyCars[i].image[0]%>" />
+                                            <h2>
+                                                <span class="car-show-brand">
+                                                    <%=familyCars[i].brand%>
+                                                </span>
+                                                <span class="car-show-class">
+                                                    <%=familyCars[i].class%>
+                                                </span>
+                                            </h2>
+                                            <p>Start at
+                                                <b>
+                                                    <%=familyCars[i].rentalPrice%> USD </b>per day</p>
+                                            <br/>
+                                            <div class="row search-result-cars-specs">
+                                                <div class="col-lg-3 search-result-cars-year">
+                                                    <%=familyCars[i].publishedYear%>
+                                                </div>
+                                                <div class="col-lg-3 search-result-cars-auto">
+                                                    <%if (familyCars[i].automatic) {%>
+                                                        AUTO
+                                                        <%} else {%>
+                                                            MANU
+                                                            <%}%>
+                                                </div>
+                                                <div class="col-lg-3 search-result-cars-fuel">
+                                                    <%=familyCars[i].fuel%>
+                                                </div>
+                                                <div class="col-lg-3 search-result-cars-cc">
+                                                    <%=familyCars[i].cc%> CC
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <form action="/order/<%=familyCars[i]._id%>" method="GET">
+                                            <button class="car-show-button">
+                                                RENT THIS CAR
+                                            </button>
+                                        </form>
+                                    </div>
+                                    <%};%>
+                            </div>
+                        </div>
+                        <%for (var i = 1; i < slideCount; i++) {%>
+                            <div class="carousel-item">
+                                <div class="row justify-content-around">
+                                    <%while (carIndex < familyCars.length){%>
+                                        <div class="col-lg-3 car-show-info-container">
+                                            <div class="car-show-carinfo">
+                                                <button class="zoomimg" onclick="zoomImg('<%=familyCars[i].image[0]%>')">
+                                                    <img src="https://cdn0.iconfinder.com/data/icons/huge-business-icons/512/Zoom_in.png" />
+                                                </button>
+                                                <img class="car-show-img" src="<%=familyCars[carIndex].image[0]%>" />
+                                                <h2>
+                                                    <span class="car-show-brand">
+                                                        <%=familyCars[carIndex].brand%>
+                                                    </span>
+                                                    <span class="car-show-class">
+                                                        <%=familyCars[carIndex].class%>
+                                                    </span>
+                                                </h2>
+                                                <p>Start at
+                                                    <b>
+                                                        <%=familyCars[carIndex].rentalPrice%> USD </b>per day</p>
+                                                <br/>
+                                                <div class="row search-result-cars-specs">
+                                                    <div class="col-lg-3 search-result-cars-year">
+                                                        <%=familyCars[carIndex].publishedYear%>
+                                                    </div>
+                                                    <div class="col-lg-3 search-result-cars-auto">
+                                                        <%if (familyCars[carIndex].automatic) {%>
+                                                            AUTO
+                                                            <%} else {%>
+                                                                MANU
+                                                                <%}%>
+                                                    </div>
+                                                    <div class="col-lg-3 search-result-cars-fuel">
+                                                        <%=familyCars[carIndex].fuel%>
+                                                    </div>
+                                                    <div class="col-lg-3 search-result-cars-cc">
+                                                        <%=familyCars[carIndex].cc%> CC
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <form action="/order/<%=familyCars[carIndex]._id%>" method="GET">
+                                                <button class="car-show-button">
+                                                    RENT THIS CAR
+                                                </button>
+                                            </form>
+                                        </div>
+                                        <%
+                                        if (carIndex % 3 === 2){
+                                            carIndex++;
+                                            break;
+                                        }    
+                                        carIndex++;}%>
+                                </div>
+                            </div>
+                            <%}%>
+                                <%}%>
+            </div>
+            <%slideCount = 0;
+          carIndex = 3;%>
+        </div>
+
+        <!-- sport cars show -->
+        <div id="sport-show" class="carousel slide car-show" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <!-- calculate the slide numbers to contain cars -->
+                <%                    
+                slideCount = 1;
+                if (sportCars.length > 3){
+                    for (var i = 3; i < sportCars.length; i++){
+                        if ( i % 3 === 0){
+                            slideCount++;
+                        }
+                    }
+            } %>
+                    <li data-target="#sport-show" data-slide-to="0" class="active"></li>
+                    <%for (var i = 1; i < slideCount; i++){%>
+                        <li data-target="#sport-show" data-slide-to="<%=i%>"></li>
+                        <%};%>
+            </ol>
+            <div class="carousel-inner">
+                <!-- check the slide numbers for approriate carousel designing -->
+                <%if (slideCount === 1) {%>
+                    <!-- slide numbers = 1 <=> only 1 active slide -->
+                    <div class="carousel-item active">
+                        <div class="row justify-content-around">
+                            <%for (var i = 0; i < sportCars.length; i++) {%>
+                                <div class="col-lg-3 car-show-info-container">
+                                    <div class="car-show-carinfo">
+                                        <button class="zoomimg" onclick="zoomImg('<%=sportCars[i].image[0]%>')">
+                                            <img src="https://cdn0.iconfinder.com/data/icons/huge-business-icons/512/Zoom_in.png" />
+                                        </button>
+                                        <img class="car-show-img" src="<%=sportCars[i].image[0]%>" />
+                                        <h1>
+                                            <span class="car-show-brand">
+                                                <%=sportCars[i].brand%>
+                                            </span>
+                                            <span class="car-show-class">
+                                                <%=sportCars[i].class%>
+                                            </span>
+                                        </h1>
+                                        <p>Start at
+                                            <b>
+                                                <%=sportCars[i].rentalPrice%> USD </b>per day</p>
+                                        <br/>
+                                        <div class="row search-result-cars-specs">
+                                            <div class="col-lg-3 search-result-cars-year">
+                                                <%=sportCars[i].publishedYear%>
+                                            </div>
+                                            <div class="col-lg-3 search-result-cars-auto">
+                                                <%if (sportCars[i].automatic) {%>
+                                                    AUTO
+                                                    <%} else {%>
+                                                        MANU
+                                                        <%}%>
+                                            </div>
+                                            <div class="col-lg-3 search-result-cars-fuel">
+                                                <%=sportCars[i].fuel%>
+                                            </div>
+                                            <div class="col-lg-3 search-result-cars-cc">
+                                                <%=sportCars[i].cc%> CC
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <form action="/order/<%=sportCars[i]._id%>" method="GET">
+                                        <button class="car-show-button">
+                                            RENT THIS CAR
+                                        </button>
+                                    </form>
+                                </div>
+                                <%};%>
+                        </div>
+                    </div>
+                    <%} else {%>
+                        <!-- slide numbers > 1, first slide is of index 0 - 2, from second is index 3 start -->
+                        <div class="carousel-item active">
+                            <div class="row justify-content-around">
+                                <%for (var i = 0; i < 3; i++) {%>
+                                    <div class="col-lg-3 car-show-info-container">
+                                        <div class="car-show-carinfo">
+                                            <button class="zoomimg" onclick="zoomImg('<%=sportCars[i].image[0]%>')">
+                                                <img src="https://cdn0.iconfinder.com/data/icons/huge-business-icons/512/Zoom_in.png" />
+                                            </button>
+                                            <img class="car-show-img" src="<%=sportCars[i].image[0]%>" />
+                                            <h2>
+                                                <span class="car-show-brand">
+                                                    <%=sportCars[i].brand%>
+                                                </span>
+                                                <span class="car-show-class">
+                                                    <%=sportCars[i].class%>
+                                                </span>
+                                            </h2>
+                                            <p>Start at
+                                                <b>
+                                                    <%=sportCars[i].rentalPrice%> USD </b>per day</p>
+                                            <br/>
+                                            <div class="row search-result-cars-specs">
+                                                <div class="col-lg-3 search-result-cars-year">
+                                                    <%=sportCars[i].publishedYear%>
+                                                </div>
+                                                <div class="col-lg-3 search-result-cars-auto">
+                                                    <%if (sportCars[i].automatic) {%>
+                                                        AUTO
+                                                        <%} else {%>
+                                                            MANU
+                                                            <%}%>
+                                                </div>
+                                                <div class="col-lg-3 search-result-cars-fuel">
+                                                    <%=sportCars[i].fuel%>
+                                                </div>
+                                                <div class="col-lg-3 search-result-cars-cc">
+                                                    <%=sportCars[i].cc%> CC
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <form action="/order/<%=sportCars[i]._id%>" method="GET">
+                                            <button class="car-show-button">
+                                                RENT THIS CAR
+                                            </button>
+                                        </form>
+                                    </div>
+                                    <%};%>
+                            </div>
+                        </div>
+                        <%for (var i = 1; i < slideCount; i++) {%>
+                            <div class="carousel-item">
+                                <div class="row justify-content-around">
+                                    <%while (carIndex < sportCars.length){%>
+                                        <div class="col-lg-3 car-show-info-container">
+                                            <div class="car-show-carinfo">
+                                                <button class="zoomimg" onclick="zoomImg('<%=sportCars[i].image[0]%>')">
+                                                    <img src="https://cdn0.iconfinder.com/data/icons/huge-business-icons/512/Zoom_in.png" />
+                                                </button>
+                                                <img class="car-show-img" src="<%=sportCars[carIndex].image[0]%>" />
+                                                <h2>
+                                                    <span class="car-show-brand">
+                                                        <%=sportCars[carIndex].brand%>
+                                                    </span>
+                                                    <span class="car-show-class">
+                                                        <%=sportCars[carIndex].class%>
+                                                    </span>
+                                                </h2>
+                                                <p>Start at
+                                                    <b>
+                                                        <%=sportCars[carIndex].rentalPrice%> USD </b>per day</p>
+                                                <br/>
+                                                <div class="row search-result-cars-specs">
+                                                    <div class="col-lg-3 search-result-cars-year">
+                                                        <%=sportCars[carIndex].publishedYear%>
+                                                    </div>
+                                                    <div class="col-lg-3 search-result-cars-auto">
+                                                        <%if (sportCars[carIndex].automatic) {%>
+                                                            AUTO
+                                                            <%} else {%>
+                                                                MANU
+                                                                <%}%>
+                                                    </div>
+                                                    <div class="col-lg-3 search-result-cars-fuel">
+                                                        <%=sportCars[carIndex].fuel%>
+                                                    </div>
+                                                    <div class="col-lg-3 search-result-cars-cc">
+                                                        <%=sportCars[carIndex].cc%> CC
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <form action="/order/<%=sportCars[carIndex]._id%>" method="GET">
+                                                <button class="car-show-button">
+                                                    RENT THIS CAR
+                                                </button>
+                                            </form>
+                                        </div>
+                                        <%carIndex++;}%>
+                                </div>
+                            </div>
+                            <%}%>
+                                <%}%>
+            </div>
+            <%slideCount = 0;
+          carIndex = 3;%>
+        </div>
+
+        <!-- limited cars show -->
+        <div id="limited-show" class="carousel slide car-show" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <!-- calculate the slide numbers to contain cars -->
+                <%                    
+                slideCount = 1;
+                if (limitedCars.length > 3){
+                    for (var i = 3; i < limitedCars.length; i++){
+                        if ( i % 3 === 0){
+                            slideCount++;
+                        }
+                    }
+            } %>
+                    <li data-target="#limited-show" data-slide-to="0" class="active"></li>
+                    <%for (var i = 1; i < slideCount; i++){%>
+                        <li data-target="#limited-show" data-slide-to="<%=i%>"></li>
+                        <%};%>
+            </ol>
+            <div class="carousel-inner">
+                <!-- check the slide numbers for approriate carousel designing -->
+                <%if (slideCount === 1) {%>
+                    <!-- slide numbers = 1 <=> only 1 active slide -->
+                    <div class="carousel-item active">
+                        <div class="row justify-content-around">
+                            <%for (var i = 0; i < limitedCars.length; i++) {%>
+                                <div class="col-lg-3 car-show-info-container">
+                                    <div class="car-show-carinfo">
+                                        <button class="zoomimg" onclick="zoomImg('<%=limitedCars[i].image[0]%>')">
+                                            <img src="https://cdn0.iconfinder.com/data/icons/huge-business-icons/512/Zoom_in.png" />
+                                        </button>
+                                        <img class="car-show-img" src="<%=limitedCars[i].image[0]%>" />
+                                        <h1>
+                                            <span class="car-show-brand">
+                                                <%=limitedCars[i].brand%>
+                                            </span>
+                                            <span class="car-show-class">
+                                                <%=limitedCars[i].class%>
+                                            </span>
+                                        </h1>
+                                        <p>Start at
+                                            <b>
+                                                <%=limitedCars[i].rentalPrice%> USD </b>per day</p>
+                                        <br/>
+                                        <div class="row search-result-cars-specs">
+                                            <div class="col-lg-3 search-result-cars-year">
+                                                <%=limitedCars[i].publishedYear%>
+                                            </div>
+                                            <div class="col-lg-3 search-result-cars-auto">
+                                                <%if (limitedCars[i].automatic) {%>
+                                                    AUTO
+                                                    <%} else {%>
+                                                        MANU
+                                                        <%}%>
+                                            </div>
+                                            <div class="col-lg-3 search-result-cars-fuel">
+                                                <%=limitedCars[i].fuel%>
+                                            </div>
+                                            <div class="col-lg-3 search-result-cars-cc">
+                                                <%=limitedCars[i].cc%> CC
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <form action="/order/<%=limitedCars[i]._id%>" method="GET">
+                                        <button class="car-show-button">
+                                            RENT THIS CAR
+                                        </button>
+                                    </form>
+                                </div>
+                                <%};%>
+                        </div>
+                    </div>
+                    <%} else {%>
+                        <!-- slide numbers > 1, first slide is of index 0 - 2, from second is index 3 start -->
+                        <div class="carousel-item active">
+                            <div class="row justify-content-around">
+                                <%for (var i = 0; i < 3; i++) {%>
+                                    <div class="col-lg-3 car-show-info-container">
+                                        <div class="car-show-carinfo">
+                                            <button class="zoomimg" onclick="zoomImg('<%=limitedCars[i].image[0]%>')">
+                                                <img src="https://cdn0.iconfinder.com/data/icons/huge-business-icons/512/Zoom_in.png" />
+                                            </button>
+                                            <img class="car-show-img" src="<%=limitedCars[i].image[0]%>" />
+                                            <h2>
+                                                <span class="car-show-brand">
+                                                    <%=limitedCars[i].brand%>
+                                                </span>
+                                                <span class="car-show-class">
+                                                    <%=limitedCars[i].class%>
+                                                </span>
+                                            </h2>
+                                            <p>Start at
+                                                <b>
+                                                    <%=limitedCars[i].rentalPrice%> USD </b>per day</p>
+                                            <br/>
+                                            <div class="row search-result-cars-specs">
+                                                <div class="col-lg-3 search-result-cars-year">
+                                                    <%=limitedCars[i].publishedYear%>
+                                                </div>
+                                                <div class="col-lg-3 search-result-cars-auto">
+                                                    <%if (limitedCars[i].automatic) {%>
+                                                        AUTO
+                                                        <%} else {%>
+                                                            MANU
+                                                            <%}%>
+                                                </div>
+                                                <div class="col-lg-3 search-result-cars-fuel">
+                                                    <%=limitedCars[i].fuel%>
+                                                </div>
+                                                <div class="col-lg-3 search-result-cars-cc">
+                                                    <%=limitedCars[i].cc%> CC
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <form action="/order/<%=limitedCars[i]._id%>" method="GET">
+                                            <button class="car-show-button">
+                                                RENT THIS CAR
+                                            </button>
+                                        </form>
+                                    </div>
+                                    <%};%>
+                            </div>
+                        </div>
+                        <%for (var i = 1; i < slideCount; i++) {%>
+                            <div class="carousel-item">
+                                <div class="row justify-content-around">
+                                    <%while (carIndex < limitedCars.length){%>
+                                        <div class="col-lg-3 car-show-info-container">
+                                            <div class="car-show-carinfo">
+                                                <button class="zoomimg" onclick="zoomImg('<%=limitedCars[i].image[0]%>')">
+                                                    <img src="https://cdn0.iconfinder.com/data/icons/huge-business-icons/512/Zoom_in.png" />
+                                                </button>
+                                                <img class="car-show-img" src="<%=limitedCars[carIndex].image[0]%>" />
+                                                <h2>
+                                                    <span class="car-show-brand">
+                                                        <%=limitedCars[carIndex].brand%>
+                                                    </span>
+                                                    <span class="car-show-class">
+                                                        <%=limitedCars[carIndex].class%>
+                                                    </span>
+                                                </h2>
+                                                <p>Start at
+                                                    <b>
+                                                        <%=limitedCars[carIndex].rentalPrice%> USD </b>per day</p>
+                                                <br/>
+                                                <div class="row search-result-cars-specs">
+                                                    <div class="col-lg-3 search-result-cars-year">
+                                                        <%=limitedCars[carIndex].publishedYear%>
+                                                    </div>
+                                                    <div class="col-lg-3 search-result-cars-auto">
+                                                        <%if (limitedCars[carIndex].automatic) {%>
+                                                            AUTO
+                                                            <%} else {%>
+                                                                MANU
+                                                                <%}%>
+                                                    </div>
+                                                    <div class="col-lg-3 search-result-cars-fuel">
+                                                        <%=limitedCars[carIndex].fuel%>
+                                                    </div>
+                                                    <div class="col-lg-3 search-result-cars-cc">
+                                                        <%=limitedCars[carIndex].cc%> CC
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <form action="/order/<%=limitedCars[carIndex]._id%>" method="GET">
+                                                <button class="car-show-button">
+                                                    RENT THIS CAR
+                                                </button>
+                                            </form>
+                                        </div>
+                                        <%
+                                        if (carIndex % 3 === 2){
+                                            carIndex++;
+                                            break;
+                                        }    
+                                        carIndex++;}%>
+                                </div>
+                            </div>
+                            <%}}%>
+            </div>
+            <%slideCount = 0;
+          carIndex = 3;%>
+        </div>
+</div>

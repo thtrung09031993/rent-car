@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%include ../partials/head%>
+        <title>FAQ</title>
+        <!-- FAQ CSS  -->
+        <link rel="stylesheet" href="/stylesheets/faq.css" />
+        <!-- faq javascript -->
+        <script type="text/javascript" src="/javascripts/faq.js"></script>
+</head>
+
+<body>
+    <header>
+        <%include ../partials/header%>
+    </header>
+    <main>
+        <% let questionIndex = 0 %>
+            <!-- Title -->
+            <%include ./faq-title%>
+                <!-- FAQ! -->
+                <%include ./faq-faq%>
+                    <!-- Contact -->
+                    <%include ../partials/contact%>
+    </main>
+    <footer>
+        <%include ../partials/footer%>
+    </footer>
+</body>
+
+</html>

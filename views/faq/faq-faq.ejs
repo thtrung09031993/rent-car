@@ -1,0 +1,120 @@
+<div class="container-fluid faqpage-faq-cf">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 faq-faq-firsttitle">
+                <h6>FIND YOUR ANSWER HERE</h6>
+            </div>
+        </div>
+        <div class="row justify-content-between">
+            <div class="col-lg-6">
+                <h1>Frequently
+                    <b>Ask & Questions.</b>
+                </h1>
+            </div>
+            <button onclick="makeAQuestion()" class="col-lg-3 faq-make-question">
+                <img src="http://www.iconarchive.com/download/i45856/tatice/cristal-intense/Help.ico" />
+                <b>MAKE A QUESTION</b>
+            </button>
+        </div>
+        <div class="row">
+            <div class="col-lg-1 faq-faq-decorate-border"></div>
+        </div>
+        <div class="row faq-faq-account-title">
+            <div class="col-lg-12">
+                <h4>
+                    <b>About Account & Members:</b>
+                </h4>
+            </div>
+        </div>
+        <div class="row justify-content-between">
+            <%while (questionIndex < 6) {
+                if (questionIndex % 3 === 0){ %>
+                <div class="col-lg-5">
+                    <% for (var i = 0;i < 3; i++) { %>
+                        <div class="row faq-faq-questionandanswer">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-11 faq-faq-questions">
+                                        <%=questions[questionIndex].question%>
+                                    </div>
+                                    <div class="col-lg-1 show-hide-buttons">
+                                        <img id="<%=questions[questionIndex]._id%>-Show" onclick="showAnswer('<%=questions[questionIndex]._id%>')" src="http://www.clker.com/cliparts/e/A/B/h/E/j/yellow-arrow-down-md.png"
+                                            class="show-button" />
+                                        <img id="<%=questions[questionIndex]._id%>-Hide" onclick="hideAnswer('<%=questions[questionIndex]._id%>')" src="http://www.clker.com/cliparts/1/8/8/e/A/k/yellow-arrow-up-md.png"
+                                            class="hide-button" />
+                                    </div>
+                                </div>
+                                <div class="row faq-faq-answers" id="<%=questions[questionIndex]._id%>">
+                                    <div class="col-lg 12">
+                                        <% if (typeof(questions[questionIndex].answer) === 'undefined'
+                                    || questions[questionIndex].answer === '') {%>
+                                            Question has not been answered yet!
+                                            <%} else {%>
+                                                <h6>
+                                                    <b>ANSWER</b>
+                                                </h6>
+                                                <%=questions[questionIndex].answer%>
+                                                    <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <%questionIndex++};%>
+                </div>
+                <%}}%>
+        </div>
+        <div class="row faq-faq-other-title">
+            <div class="col-lg-12">
+                <h4>
+                    <b>Other Questions:</b>
+                </h4>
+            </div>
+        </div>
+        <div class="row justify-content-between">
+            <%while (questionIndex < 12) {
+                    if (questionIndex % 3 === 0){ %>
+                <div class="col-lg-5">
+                    <% for (var i = 0;i < 3; i++) { %>
+                        <div class="row faq-faq-questionandanswer">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-11 faq-faq-questions">
+                                        <%=questions[questionIndex].question%>
+                                    </div>
+                                    <div class="col-lg-1 show-hide-buttons">
+                                        <img id="<%=questions[questionIndex]._id%>-Show" onclick="showAnswer('<%=questions[questionIndex]._id%>')" src="http://www.clker.com/cliparts/e/A/B/h/E/j/yellow-arrow-down-md.png"
+                                            class="show-button" />
+                                        <img id="<%=questions[questionIndex]._id%>-Hide" onclick="hideAnswer('<%=questions[questionIndex]._id%>')" src="http://www.clker.com/cliparts/1/8/8/e/A/k/yellow-arrow-up-md.png"
+                                            class="hide-button" />
+                                    </div>
+                                </div>
+                                <div class="row faq-faq-answers" id="<%=questions[questionIndex]._id%>">
+                                    <div class="col-lg 12">
+                                        <% if (typeof(questions[questionIndex].answer) === 'undefined'
+                                        || questions[questionIndex].answer === '') {%>
+                                            Question has not been answered yet!
+                                            <%} else {%>
+                                                <h6>
+                                                    <b>ANSWER</b>
+                                                </h6>
+                                                <%=questions[questionIndex].answer%>
+                                                    <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <%questionIndex++};%>
+                </div>
+                <%}}%>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 faq-faq-bottom">
+                <h6>No answer for your questions? Make a question now!</h6>
+                <button onclick="makeAQuestion()" class="faq-make-question">
+                    <img src="http://www.iconarchive.com/download/i45856/tatice/cristal-intense/Help.ico" />
+                    <b>MAKE A QUESTION</b>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

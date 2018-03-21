@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Gallery Page</title>
+    <script>
+        var listCar = <%- JSON.stringify(list) %>
+    </script>
+    <% include ./partials/head %>
+        <!-- Car Gallery CSS -->
+        <link rel="stylesheet" href="/stylesheets/gallery.css">
+        <!-- Car gallery javascript -->
+        <script type="text/javascript" src="/javascripts/gallery.js"></script>
+</head>
+
+<body onload="createButton('buttonDiv');">
+    <header>
+        <% include ./partials/header %>
+    </header>
+    <main>
+        <div class="container-fluid">
+            <div class="row text-center" id="welcome">
+                <div id="linear">
+                    <h1 class="align-self-center display-4" style="padding-top: 150px;">Royal Cars
+                        <span class="font-weight-light"> Vehicles.</span>
+                    </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2">
+
+                </div>
+                <div class="col-lg-2">
+                    <div class="row" style="padding: 30px;padding-left: 0px;">
+                        <h3 class="font-text-bold">Car categories</h3>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2">
+
+                </div>
+                <div class="col-lg-2" id="buttonDiv">
+
+                </div>
+                <div class="col-lg-8">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% include ./partials/contact %>
+    </main>
+    <footer>
+        <% include ./partials/footer %>
+    </footer>
+</body>
+
+</html>

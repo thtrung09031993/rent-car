@@ -1,0 +1,222 @@
+<div class="container-fluid driver-detail-cf">
+    <img src="<%=drivers[0].image%>" id="driver-detail-zoom-img" />
+    <div class="container driver-detail-c">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>
+                            <b>Our Drivers.</b>
+                        </h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-1 driver-detail-title-border"></div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div id="row driver-detail-zoom-info">
+                    <div class="col-lg-12">
+                        <h2 id="driver-detail-zoom-name">
+                            <b>
+                                <%=drivers[0].fname%>
+                                    <%=drivers[0].lname%>
+                            </b>
+                        </h2>
+                        <h6 id="driver-detail-zoom-experience">
+                            <%=drivers[0].experience%> Years Experienced as Driver</h6>
+                        <p id="driver-detail-zoom-detail">
+                            <%=drivers[0].detail%>
+                        </p>
+                    </div>
+                </div>
+                <div class="row driver-detail-zoom-social">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-2">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <a id="driver-detail-zoom-facebook" href="<%=drivers[0].linkFacebook%>">
+                                    <img src="https://cdn3.iconfinder.com/data/icons/picons-social/57/06-facebook-512.png" />
+                                    <br/>
+                                    <b>Facebook</b>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <a id="driver-detail-zoom-twitter" href="<%=drivers[0].linkTwitter%>">
+                                    <img src="https://image.flaticon.com/icons/png/512/8/8800.png" />
+                                    <br/>
+                                    <b>Twitter</b>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <a id="driver-detail-zoom-instagram" href="<%=drivers[0].linkInstagram%>">
+                                    <img src="https://image.flaticon.com/icons/svg/61/61164.svg" />
+                                    <br/>
+                                    <b>Instagram</b>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row driver-detail-show">
+            <div class="col-lg-12">
+                <div id="driver-show" class="carousel slide driver-show" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <!-- calculate the slide numbers to contain drivers -->
+                        <%                                             
+                                slideCount = 1;                                
+                                if (drivers.length > 3){
+                                    for (var i = 3; i < drivers.length; i++){
+                                        if ( i % 3 === 0){
+                                            slideCount++;
+                                        }
+                                    }                                     
+                            } %>
+                            <li data-target="#driver-show" data-slide-to="0" class="active"></li>
+                            <%for (var i = 1; i < slideCount; i++){%>
+                                <li data-target="#driver-show" data-slide-to="<%=i%>"></li>
+                                <%};%>
+                    </ol>
+                    <div class="carousel-inner">
+                        <!-- check the slide numbers for approriate carousel designing -->
+                        <%if (slideCount === 1) {%>
+                            <div class="carousel-item active">
+                                <%for (var i = 0; i < drivers.length; i++) {%>
+                                    <div id="<%=drivers[i]._id%>" class="col-lg-3 driver-detail-all"
+                                            onclick="driverClick('<%=drivers[i]._id%>','<%=drivers[i].fname%>','<%=drivers[i].lname%>','<%=drivers[i].image%>','<%=drivers[i].experience%>','<%=drivers[i].detail%>','<%=drivers[i].linkFacebook%>','<%=drivers[i].linkTwitter%>','<%=drivers[i].linkInstagram%>')">
+                                        <div class="row">
+                                            <div class="col-lg-5 driver-detail-info">
+                                                <h4>
+                                                    <b>
+                                                        <%=drivers[i].fname%>
+                                                            <br/>
+                                                            <%=drivers[i].lname%>
+                                                    </b>
+                                                </h4>
+                                                <h6>
+                                                    <%=drivers[i].experience%> Years Experience
+                                                </h6>
+                                                <div class="row driver-detail-social">
+                                                    <div class="col-lg-12">
+                                                        <a href="<%=drivers[i].linkFacebook%>">
+                                                            <img src="https://cdn3.iconfinder.com/data/icons/picons-social/57/06-facebook-512.png" />
+                                                        </a>
+                                                        <a href="<%=drivers[i].linkTwitter%>">
+                                                            <img src="https://image.flaticon.com/icons/png/512/8/8800.png" />
+                                                        </a>
+                                                        <a href="<%=drivers[i].linkInstagram%>">
+                                                            <img src="https://image.flaticon.com/icons/svg/61/61164.svg" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 driver-detail-img">
+                                                <img src="<%=drivers[i].image%>" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <%};%>
+                            </div>
+                            <%} else {%>
+                                <!-- slide numbers > 1, first slide is of index 0 - 2, from second is index 3 start -->
+                                <div class="carousel-item active">
+                                    <div class="row justify-content-around">
+                                        <%for (var i = 0; i < 3; i++) {%>
+                                            <div id="<%=drivers[i]._id%>" class="col-lg-3 driver-detail-all"
+                                                onclick="driverClick('<%=drivers[i]._id%>','<%=drivers[i].fname%>','<%=drivers[i].lname%>','<%=drivers[i].image%>','<%=drivers[i].experience%>','<%=drivers[i].detail%>','<%=drivers[i].linkFacebook%>','<%=drivers[i].linkTwitter%>','<%=drivers[i].linkInstagram%>')">
+                                                <div class="row">
+                                                    <div class="col-lg-5 driver-detail-info">
+                                                        <h4>
+                                                            <b>
+                                                                <%=drivers[i].fname%>
+                                                                    <br/>
+                                                                    <%=drivers[i].lname%>
+                                                            </b>
+                                                        </h4>
+                                                        <h6>
+                                                            <%=drivers[i].experience%> Years Experience
+                                                        </h6>
+                                                        <div class="row driver-detail-social">
+                                                            <div class="col-lg-12">
+                                                                <a href="<%=drivers[i].linkFacebook%>">
+                                                                    <img src="https://cdn3.iconfinder.com/data/icons/picons-social/57/06-facebook-512.png" />
+                                                                </a>
+                                                                <a href="<%=drivers[i].linkTwitter%>">
+                                                                    <img src="https://image.flaticon.com/icons/png/512/8/8800.png" />
+                                                                </a>
+                                                                <a href="<%=drivers[i].linkInstagram%>">
+                                                                    <img src="https://image.flaticon.com/icons/svg/61/61164.svg" />
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 driver-detail-img">
+                                                        <img src="<%=drivers[i].image%>" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <%};%>
+                                    </div>
+                                </div>
+                                <%while (driverIndex < drivers.length) {
+                                    if (driverIndex % 3 === 0) { %>
+                                    <div class="carousel-item">
+                                        <div class="row justify-content-around">
+                                            <%for (var i = 0; i < 3; i++){
+                                                if (driverIndex === drivers.length){
+                                                    break;
+                                                }%>
+                                                <div id="<%=drivers[driverIndex]._id%>" class="col-lg-3 driver-detail-all"
+                                                        onclick="driverClick('<%=drivers[driverIndex]._id%>','<%=drivers[driverIndex].fname%>','<%=drivers[driverIndex].lname%>','<%=drivers[driverIndex].image%>','<%=drivers[driverIndex].experience%>','<%=drivers[driverIndex].detail%>','<%=drivers[driverIndex].linkFacebook%>','<%=drivers[driverIndex].linkTwitter%>','<%=drivers[driverIndex].linkInstagram%>')">
+                                                    <div class="row">
+                                                        <div class="col-lg-5 driver-detail-info">
+                                                            <h4>
+                                                                <b>
+                                                                    <%=drivers[driverIndex].fname%>
+                                                                        <br/>
+                                                                        <%=drivers[driverIndex].lname%>
+                                                                </b>
+                                                            </h4>
+                                                            <h6>
+                                                                <%=drivers[driverIndex].experience%> Years Experience
+                                                            </h6>
+                                                            <div class="row driver-detail-social">
+                                                                <div class="col-lg-12">
+                                                                    <a href="<%=drivers[driverIndex].linkFacebook%>">
+                                                                        <img src="https://cdn3.iconfinder.com/data/icons/picons-social/57/06-facebook-512.png" />
+                                                                    </a>
+                                                                    <a href="<%=drivers[driverIndex].linkTwitter%>">
+                                                                        <img src="https://image.flaticon.com/icons/png/512/8/8800.png" />
+                                                                    </a>
+                                                                    <a href="<%=drivers[driverIndex].linkInstagram%>">
+                                                                        <img src="https://image.flaticon.com/icons/svg/61/61164.svg" />
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6 driver-detail-img">
+                                                            <img src="<%=drivers[driverIndex].image%>" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <%driverIndex++;}%>
+                                        </div>
+                                    </div>
+                                    <%}}}%>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

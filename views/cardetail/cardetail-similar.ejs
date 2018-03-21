@@ -1,0 +1,174 @@
+<% var slideCount, carIndex = 3;%>
+    <div class="container cardetail-similarcar">
+        <div class="row">
+            <div class="col-lg-12 cardetail-similarcar-title">
+                <h5>
+                    <b>Similar Cars</b>
+                </h5>
+            </div>
+        </div>
+        <div id="similar-show" class="carousel slide car-show" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <!-- calculate the slide numbers to contain cars -->
+                <%                        
+    slideCount = 1;
+    if (similarCars.length > 3){
+        for (var i = 3; i < similarCars.length; i++){
+            if ( i % 3 === 0){
+                slideCount++;
+            }
+        }
+} %>
+                    <li data-target="#similar-show" data-slide-to="0" class="active"></li>
+                    <%for (var i = 1; i < slideCount; i++){%>
+                        <li data-target="#similar-show" data-slide-to="<%=i%>"></li>
+                        <%};%>
+            </ol>
+            <div class="carousel-inner">
+                <!-- check the slide numbers for approriate carousel designing -->
+                <%if (slideCount === 1) {%>
+                    <!-- slide numbers = 1 <=> only 1 active slide -->
+                    <div class="carousel-item active">
+                        <div class="row justify-content-around">
+                            <%for (var i = 0; i < similarCars.length; i++) {%>
+                                <div onclick="location.href = '/car/detail/<%=similarCars[i]._id%>'" class="col-lg-3 car-show-info-container">
+                                    <div class="car-show-carinfo">
+                                        <img class="car-show-img" src="<%=similarCars[i].image[0]%>" />
+                                        <h1>
+                                            <span class="car-show-brand">
+                                                <%=similarCars[i].brand%>
+                                            </span>
+                                            <span class="car-show-class">
+                                                <%=similarCars[i].class%>
+                                            </span>
+                                        </h1>
+                                        <p>Start at
+                                            <b>
+                                                <%=similarCars[i].rentalPrice%> USD </b>per day</p>
+                                        <br/>
+                                        <div class="row">
+                                                <div class="car-show-carservice col-lg-3">
+                                                        <%=similarCars[i].publishedYear%>
+                                                    </div>
+                                                    <%if (similarCars[i].automatic) {%>
+                                                        <div class="car-show-carservice col-lg-3">
+                                                            AUTO
+                                                        </div>
+                                                        <%} else {%>
+                                                            <div class="car-show-carservice col-lg-3">
+                                                                MANUAL
+                                                            </div>
+                                                            <%}%>
+                                                                <div class="car-show-carservice col-lg-3">
+                                                                    <%=similarCars[i].fuel%>
+                                                                </div>
+                                                                <div class="car-show-carservice col-lg-3">
+                                                                    <%=similarCars[i].cc%> CC
+                                                                </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                                <%};%>
+                        </div>
+                    </div>
+                    <%} else {%>
+                        <!-- slide numbers > 1, first slide is of index 0 - 2, from second is index 3 start -->
+                        <div class="carousel-item active">
+                            <div class="row justify-content-around">
+                                <%for (var i = 0; i < 3; i++) {%>                                    
+                                    <div onclick="location.href = '/car/detail/<%=similarCars[i]._id%>'" class="col-lg-3 car-show-info-container">
+                                        <div class="car-show-carinfo">
+                                            <img class="car-show-img" src="<%=similarCars[i].image[0]%>" />
+                                            <h2>
+                                                <span class="car-show-brand">
+                                                    <%=similarCars[i].brand%>
+                                                </span>
+                                                <span class="car-show-class">
+                                                    <%=similarCars[i].class%>
+                                                </span>
+                                            </h2>
+                                            <p>Start at
+                                                <b>
+                                                    <%=similarCars[i].rentalPrice%> USD </b>per day</p>
+                                            <br/>
+                                            <div class="row">
+                                                    <div class="car-show-carservice col-lg-3">
+                                                            <%=similarCars[i].publishedYear%>
+                                                        </div>
+                                                        <%if (similarCars[i].automatic) {%>
+                                                            <div class="car-show-carservice col-lg-3">
+                                                                AUTO
+                                                            </div>
+                                                            <%} else {%>
+                                                                <div class="car-show-carservice col-lg-3">
+                                                                    MANUAL
+                                                                </div>
+                                                                <%}%>
+                                                                    <div class="car-show-carservice col-lg-3">
+                                                                        <%=similarCars[i].fuel%>
+                                                                    </div>
+                                                                    <div class="car-show-carservice col-lg-3">
+                                                                        <%=similarCars[i].cc%> CC
+                                                                    </div>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                    <%};%>
+                            </div>
+                        </div>
+                        <%for (var i = 1; i < slideCount; i++) {%>
+                            <div class="carousel-item">
+                                <div class="row justify-content-around">
+                                    <%while (carIndex < similarCars.length){%>
+                                        <div onclick="location.href = '/car/detail/<%=similarCars[i]._id%>'" class="col-lg-3 car-show-info-container">
+                                            <div class="car-show-carinfo">
+                                                <img class="car-show-img" src="<%=similarCars[carIndex].image[0]%>" />
+                                                <h2>
+                                                    <span class="car-show-brand">
+                                                        <%=similarCars[carIndex].brand%>
+                                                    </span>
+                                                    <span class="car-show-class">
+                                                        <%=similarCars[carIndex].class%>
+                                                    </span>
+                                                </h2>
+                                                <p>Start at
+                                                    <b>
+                                                        <%=similarCars[carIndex].rentalPrice%> USD </b>per day</p>
+                                                <br/>
+                                                <div class="row">
+                                                        <div class="car-show-carservice col-lg-3">
+                                                                <%=similarCars[carIndex].publishedYear%>
+                                                            </div>
+                                                            <%if (similarCars[carIndex].automatic) {%>
+                                                                <div class="car-show-carservice col-lg-3">
+                                                                    AUTO
+                                                                </div>
+                                                                <%} else {%>
+                                                                    <div class="car-show-carservice col-lg-3">
+                                                                        MANUAL
+                                                                    </div>
+                                                                    <%}%>
+                                                                        <div class="car-show-carservice col-lg-3">
+                                                                            <%=similarCars[carIndex].fuel%>
+                                                                        </div>
+                                                                        <div class="car-show-carservice col-lg-3">
+                                                                            <%=similarCars[carIndex].cc%> CC
+                                                                        </div>
+                                                </div> 
+                                            </div>
+                                        </div>
+                                        <%
+                                if (carIndex % 3 === 2){
+                                    carIndex++;
+                                    break;
+                                }    
+                                carIndex++;}%>
+                                </div>
+                            </div>
+                            <%}%>
+                                <%}%>
+            </div>
+            <%slideCount = 0;
+carIndex = 3;%>
+        </div>
+    </div>

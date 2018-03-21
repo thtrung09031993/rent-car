@@ -1,0 +1,119 @@
+.search-car-cf {
+    background-image: url(https://cnet1.cbsistatic.com/img/5qoXbWq98tuS-UJSojH7bVFiDxE=/2017/10/24/f50c67f3-e5fc-4291-8e49-0c6e9bd7e77d/mazda-vision-coupe-promo.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100% 100%;
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
+
+.search-car-form{
+    color: white;
+}
+
+.search-car-form div {
+    margin-top: 20px;
+}
+
+.search-car-form button {
+    margin-top: 20px;
+}
+
+.search-car-result-cf {
+    background-image: url(https://cnet1.cbsistatic.com/img/5qoXbWq98tuS-UJSojH7bVFiDxE=/2017/10/24/f50c67f3-e5fc-4291-8e49-0c6e9bd7e77d/mazda-vision-coupe-promo.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100% 100%;
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
+
+.search-car-result-cf h3,h5 {
+    color: white;
+}
+
+.carousel-inner {
+    margin-bottom: 50px;
+  }
+  
+  .carousel-indicators {
+    bottom: -100px;
+  }
+  
+  .carousel-indicators li {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin: 10px;
+    text-indent: 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    background-color: lightgray;
+  }
+  
+  .carousel-indicators .active {
+    width: 15px;
+    height: 15px;
+    margin: 10px;
+    background-color: grey;
+  }
+
+  .search-result-cars {
+      text-align: center;
+      background-color: white;
+      margin-top: 30px;
+      padding-bottom: 50px;
+  }
+
+  .search-result-cars img {
+      width: 100%;
+      height: 250px;
+      margin-bottom: 30px;
+  }
+
+  .search-result-cars-class {
+    color: yellow;
+}
+
+.search-result-cars-year,
+.search-result-cars-fuel,
+.search-result-cars-cc, 
+.search-result-cars-auto  {
+    background-color: grey;
+    text-align: center;
+    font-size: 9px;
+    height: 30px;    
+    line-height: 30px;
+}
+
+.search-result-cars-year {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-right-style: solid;
+    border-color: white;
+    border-width: 0.2px;
+}
+
+.search-result-cars-auto {
+    border-right-style: solid;
+    border-color: white;
+    border-width: 0.2px;
+}
+
+.search-result-cars-fuel {
+    border-right-style: solid;
+    border-color: white;
+    border-width: 0.2px;
+}
+
+.search-result-cars-cc {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.search-result-cars-specs {
+    width: 95%;
+    margin: auto;
+    margin-top: 30px;
+}

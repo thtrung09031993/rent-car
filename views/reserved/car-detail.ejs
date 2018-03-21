@@ -1,0 +1,84 @@
+<!--Car detail-->
+<div class="row" style="background-color: #f8f8f8;">
+        <!--Car Image-->
+        <div class="col-lg-6">
+                <div id="carDetail" class="carousel slide" data-ride="carousel" data-interval="false">
+                    <ol class="carousel-indicators">
+                        <%for (var i = 0; i < car.image.length;i++) {%>
+                            <li data-target="#carDetail" data-slide-to="<%= i%>" class="<%- (i == 0) ? 'active': ''%>">
+                                <img style="width:10px; height:10px;" src="<%= car.image[i]%>"/>
+                            </li>
+                        <%}%>
+                    </ol>
+                    <div class="carousel-inner">
+                        <%for (var i =0;i < car.image.length;i++) {%>
+                            <div class="carousel-item <%- (i==0) ? 'active': ''%>">
+                                <img class="d-block w-100" src="<%=car.image[i]%>"/>
+                            </div>    
+                        <%}%>
+                    </div>
+                    <a class="carousel-control-prev" href="#carDetail" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carDetail" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+        </div>
+        <!--Car Info-->
+        <div class="col-lg-6">
+            <small class="form-text">Registered
+                <span>
+                    <%= car.publishedYear%>
+                </span>
+            </small>
+            <h2>
+                <%= car.brand %>
+                    <span style="color:#FED000">
+                        <%= car.class%>
+                    </span>
+            </h2>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>
+                            <p>
+                                Make <%= car.make_brand %>
+                            </p>
+                        </td>
+                        <td>
+                            <p>
+                                Style <%= car.style %>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Model <%= car.class %></p>
+                        </td>
+                        <td>
+                            <p>Engine <%= car.engine %></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Kilometers <%= car.kilometers %></p>
+                        </td>
+                        <td>
+                            <p>Fuel type <%= car.fuel %></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           <p>Type <%= car.type %></p>
+                        </td>
+                        <td>
+                           <p><%= car.numOfYearService %> years service include</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>

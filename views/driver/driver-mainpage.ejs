@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>All Drivers</title>
+    <%include ../partials/head%>
+        <!-- Driver CSS -->
+        <link rel="stylesheet" href="/stylesheets/driver.css" />
+        <!-- Driver javascript -->
+        <script type="text/javascript" src="/javascripts/driver.js"></script>
+</head>
+
+<body onload="driverpageLoad();">
+    <!-- Declare variables for driver carousel -->
+    <%
+    let slideCount;
+    let driverIndex = 3;
+    %>
+
+        <header>
+            <%include ../partials/header%>
+        </header>
+        <main>
+            <!-- Title -->
+            <%include ./driver-title%>
+
+                <!-- Driver Detail -->
+                <%include ./driver-detail%>
+
+                    <!-- Contact -->
+                    <%include ../partials/contact%>
+        </main>
+        <footer>
+            <%include ../partials/footer%>
+        </footer>
+</body>
+
+</html>

@@ -1,0 +1,248 @@
+<div class="row">
+    <div class="col-lg-12 cardetail-review-title">
+        <h5>
+            <b>Car Reviews</b>
+        </h5>
+        <%=reviews.length%> Review
+    </div>
+</div>
+<%for (var i = 0; i < reviews.length; i++) {%>
+    <div class="row cardetail-review-row">
+        <%if (!reviews[i].name) {%>
+            <div class="col-lg-2">
+                <%if (JSON.stringify(reviews[i].user.facebook) !== JSON.stringify({})) {%>
+                    <img class="cardetail-review-img" src="<%=reviews[i].user.facebook.image%>" />
+                    <%} else {%>
+                        <img class="cardetail-review-img" src="http://jnrgym.com/wp-content/uploads/2013/08/Facebook-no-profile-picture-icon-620x389.jpg"
+                        />
+                        <%}%>
+            </div>
+            <div class="col-lg-10">
+                <h6>
+                    <b>
+                        <%if (JSON.stringify(reviews[i].user.facebook) !== JSON.stringify({})) {%>
+                            <%=reviews[i].user.facebook.name%>
+                                <%} else {%>
+                                    <%=reviews[i].user.name%>
+                                        <%}%>
+                    </b>
+                </h6>
+                <span class="review-time">
+                    <!-- Day -->
+                    <%=reviews[i].createdTime.toString().substring(8,10)%>
+                        <!-- Month -->
+                        <%=reviews[i].createdTime.toString().substring(4,7)%>
+                            <!-- Year -->
+                            <%=reviews[i].createdTime.toString().substring(11,15)%>
+                                <!-- Time -->
+                                <%=reviews[i].createdTime.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })%>
+                </span>
+                <p class="cardetail-review-comment">
+                    <%=reviews[i].comment%>
+                </p>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <b>Driving</b>
+                        <br/>
+                        <fieldset class="rating <%=reviews[i]._id%>-drivingrank">
+                            <input type="radio" id="<%=reviews[i]._id%>drivingstar5" name="<%=reviews[i]._id%>driving-rating" value="5" />
+                            <label class="full" for="<%=reviews[i]._id%>drivingstar5" title="Awesome - 5 drivingstars"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>drivingstar4half" name="<%=reviews[i]._id%>driving-rating" value="4.5" />
+                            <label class="half" for="<%=reviews[i]._id%>drivingstar4half" title="Pretty good - 4.5 drivingstars"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>drivingstar4" name="<%=reviews[i]._id%>driving-rating" value="4" />
+                            <label class="full" for="<%=reviews[i]._id%>drivingstar4" title="Pretty good - 4 drivingstars"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>drivingstar3half" name="<%=reviews[i]._id%>driving-rating" value="3.5" />
+                            <label class="half" for="<%=reviews[i]._id%>drivingstar3half" title="Meh - 3.5 drivingstars"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>drivingstar3" name="<%=reviews[i]._id%>driving-rating" value="3" />
+                            <label class="full" for="<%=reviews[i]._id%>drivingstar3" title="Meh - 3 drivingstars"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>drivingstar2half" name="<%=reviews[i]._id%>driving-rating" value="2.5" />
+                            <label class="half" for="<%=reviews[i]._id%>drivingstar2half" title="Kinda bad - 2.5 drivingstars"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>drivingstar2" name="<%=reviews[i]._id%>driving-rating" value="2" />
+                            <label class="full" for="<%=reviews[i]._id%>drivingstar2" title="Kinda bad - 2 drivingstars"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>drivingstar1half" name="<%=reviews[i]._id%>driving-rating" value="1.5" />
+                            <label class="half" for="<%=reviews[i]._id%>drivingstar1half" title="Meh - 1.5 drivingstars"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>drivingstar1" name="<%=reviews[i]._id%>driving-rating" value="1" />
+                            <label class="full" for="<%=reviews[i]._id%>drivingstar1" title="Sucks big time - 1 drivingstar"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>drivingstarhalf" name="<%=reviews[i]._id%>driving-rating" value="half" />
+                            <label class="half" for="<%=reviews[i]._id%>drivingstarhalf" title="Sucks big time - 0.5 drivingstars"></label>
+                        </fieldset>
+                    </div>
+                    <div class="col-lg-4">
+                        <b>Practicality</b>
+                        <br/>
+                        <fieldset class="rating <%=reviews[i]._id%>-practicalityrank">
+                            <input type="radio" id="<%=reviews[i]._id%>practicalitystar5" name="<%=reviews[i]._id%>practicality-rating" value="5" />
+                            <label class="full" for="<%=reviews[i]._id%>practicalitystar5" title="Awesome - 5 practicalitystars"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>practicalitystar4half" name="<%=reviews[i]._id%>practicality-rating" value="4.5"
+                            />
+                            <label class="half" for="<%=reviews[i]._id%>practicalitystar4half" title="Pretty good - 4.5 practicalitystars"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>practicalitystar4" name="<%=reviews[i]._id%>practicality-rating" value="4" />
+                            <label class="full" for="<%=reviews[i]._id%>practicalitystar4" title="Pretty good - 4 practicalitystars"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>practicalitystar3half" name="<%=reviews[i]._id%>practicality-rating" value="3.5"
+                            />
+                            <label class="half" for="<%=reviews[i]._id%>practicalitystar3half" title="Meh - 3.5 practicalitystars"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>practicalitystar3" name="<%=reviews[i]._id%>practicality-rating" value="3" />
+                            <label class="full" for="<%=reviews[i]._id%>practicalitystar3" title="Meh - 3 practicalitystars"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>practicalitystar2half" name="<%=reviews[i]._id%>practicality-rating" value="2.5"
+                            />
+                            <label class="half" for="<%=reviews[i]._id%>practicalitystar2half" title="Kinda bad - 2.5 practicalitystars"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>practicalitystar2" name="<%=reviews[i]._id%>practicality-rating" value="2" />
+                            <label class="full" for="<%=reviews[i]._id%>practicalitystar2" title="Kinda bad - 2 practicalitystars"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>practicalitystar1half" name="<%=reviews[i]._id%>practicality-rating" value="1.5"
+                            />
+                            <label class="half" for="<%=reviews[i]._id%>practicalitystar1half" title="Meh - 1.5 practicalitystars"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>practicalitystar1" name="<%=reviews[i]._id%>practicality-rating" value="1" />
+                            <label class="full" for="<%=reviews[i]._id%>practicalitystar1" title="Sucks big time - 1 practicalitystar"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>practicalitystarhalf" name="<%=reviews[i]._id%>practicality-rating" value="half"
+                            />
+                            <label class="half" for="<%=reviews[i]._id%>practicalitystarhalf" title="Sucks big time - 0.5 practicalitystars"></label>
+                        </fieldset>
+                    </div>
+                    <div class="col-lg-4">
+                        <b>Interior</b>
+                        <br/>
+                        <fieldset class="rating <%=reviews[i]._id%>-interiorrank">
+                            <input type="radio" id="<%=reviews[i]._id%>interiorstar5" name="<%=reviews[i]._id%>interior-rating" value="5" />
+                            <label class="full" for="<%=reviews[i]._id%>interiorstar5" title="Awesome - 5 interiorstars"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>interiorstar4half" name="<%=reviews[i]._id%>interior-rating" value="4.5" />
+                            <label class="half" for="<%=reviews[i]._id%>interiorstar4half" title="Pretty good - 4.5 interiorstars"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>interiorstar4" name="<%=reviews[i]._id%>interior-rating" value="4" />
+                            <label class="full" for="<%=reviews[i]._id%>interiorstar4" title="Pretty good - 4 interiorstars"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>interiorstar3half" name="<%=reviews[i]._id%>interior-rating" value="3.5" />
+                            <label class="half" for="<%=reviews[i]._id%>interiorstar3half" title="Meh - 3.5 interiorstars"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>interiorstar3" name="<%=reviews[i]._id%>interior-rating" value="3" />
+                            <label class="full" for="<%=reviews[i]._id%>interiorstar3" title="Meh - 3 interiorstars"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>interiorstar2half" name="<%=reviews[i]._id%>interior-rating" value="2.5" />
+                            <label class="half" for="<%=reviews[i]._id%>interiorstar2half" title="Kinda bad - 2.5 interiorstars"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>interiorstar2" name="<%=reviews[i]._id%>interior-rating" value="2" />
+                            <label class="full" for="<%=reviews[i]._id%>interiorstar2" title="Kinda bad - 2 interiorstars"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>interiorstar1half" name="<%=reviews[i]._id%>interior-rating" value="1.5" />
+                            <label class="half" for="<%=reviews[i]._id%>interiorstar1half" title="Meh - 1.5 interiorstars"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>interiorstar1" name="<%=reviews[i]._id%>interior-rating" value="1" />
+                            <label class="full" for="<%=reviews[i]._id%>interiorstar1" title="Sucks big time - 1 interiorstar"></label>
+                            <input type="radio" id="<%=reviews[i]._id%>interiorstarhalf" name="<%=reviews[i]._id%>interior-rating" value="half" />
+                            <label class="half" for="<%=reviews[i]._id%>interiorstarhalf" title="Sucks big time - 0.5 interiorstars"></label>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+
+            <%} else {%>
+
+                <div class="col-lg-2">
+                    <img class="cardetail-review-img" src="http://jnrgym.com/wp-content/uploads/2013/08/Facebook-no-profile-picture-icon-620x389.jpg"
+                    />
+                </div>
+                <div class="col-lg-10">
+                    <h6>
+                        <b>
+                            <%=reviews[i].name%>
+                        </b>
+                    </h6>
+                    <span class="review-time">
+                        <!-- Day -->
+                        <%=reviews[i].createdTime.toString().substring(8,10)%>
+                            <!-- Month -->
+                            <%=reviews[i].createdTime.toString().substring(4,7)%>
+                                <!-- Year -->
+                                <%=reviews[i].createdTime.toString().substring(11,15)%>
+                                    <!-- Time -->
+                                    <%=reviews[i].createdTime.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })%>
+                    </span>
+                    <p class="cardetail-review-comment">
+                        <%=reviews[i].comment%>
+                    </p>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <b>Driving</b>
+                            <br/>
+                            <fieldset class="rating <%=reviews[i]._id%>-drivingrank">
+                                <input type="radio" id="<%=reviews[i]._id%>drivingstar5" name="<%=reviews[i]._id%>driving-rating" value="5" />
+                                <label class="full" for="<%=reviews[i]._id%>drivingstar5" title="Awesome - 5 drivingstars"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>drivingstar4half" name="<%=reviews[i]._id%>driving-rating" value="4.5" />
+                                <label class="half" for="<%=reviews[i]._id%>drivingstar4half" title="Pretty good - 4.5 drivingstars"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>drivingstar4" name="<%=reviews[i]._id%>driving-rating" value="4" />
+                                <label class="full" for="<%=reviews[i]._id%>drivingstar4" title="Pretty good - 4 drivingstars"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>drivingstar3half" name="<%=reviews[i]._id%>driving-rating" value="3.5" />
+                                <label class="half" for="<%=reviews[i]._id%>drivingstar3half" title="Meh - 3.5 drivingstars"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>drivingstar3" name="<%=reviews[i]._id%>driving-rating" value="3" />
+                                <label class="full" for="<%=reviews[i]._id%>drivingstar3" title="Meh - 3 drivingstars"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>drivingstar2half" name="<%=reviews[i]._id%>driving-rating" value="2.5" />
+                                <label class="half" for="<%=reviews[i]._id%>drivingstar2half" title="Kinda bad - 2.5 drivingstars"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>drivingstar2" name="<%=reviews[i]._id%>driving-rating" value="2" />
+                                <label class="full" for="<%=reviews[i]._id%>drivingstar2" title="Kinda bad - 2 drivingstars"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>drivingstar1half" name="<%=reviews[i]._id%>driving-rating" value="1.5" />
+                                <label class="half" for="<%=reviews[i]._id%>drivingstar1half" title="Meh - 1.5 drivingstars"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>drivingstar1" name="<%=reviews[i]._id%>driving-rating" value="1" />
+                                <label class="full" for="<%=reviews[i]._id%>drivingstar1" title="Sucks big time - 1 drivingstar"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>drivingstarhalf" name="<%=reviews[i]._id%>driving-rating" value="half" />
+                                <label class="half" for="<%=reviews[i]._id%>drivingstarhalf" title="Sucks big time - 0.5 drivingstars"></label>
+                            </fieldset>
+                        </div>
+                        <div class="col-lg-4">
+                            <b>Practicality</b>
+                            <br/>
+                            <fieldset class="rating <%=reviews[i]._id%>-practicalityrank">
+                                <input type="radio" id="<%=reviews[i]._id%>practicalitystar5" name="<%=reviews[i]._id%>practicality-rating" value="5" />
+                                <label class="full" for="<%=reviews[i]._id%>practicalitystar5" title="Awesome - 5 practicalitystars"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>practicalitystar4half" name="<%=reviews[i]._id%>practicality-rating" value="4.5"
+                                />
+                                <label class="half" for="<%=reviews[i]._id%>practicalitystar4half" title="Pretty good - 4.5 practicalitystars"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>practicalitystar4" name="<%=reviews[i]._id%>practicality-rating" value="4" />
+                                <label class="full" for="<%=reviews[i]._id%>practicalitystar4" title="Pretty good - 4 practicalitystars"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>practicalitystar3half" name="<%=reviews[i]._id%>practicality-rating" value="3.5"
+                                />
+                                <label class="half" for="<%=reviews[i]._id%>practicalitystar3half" title="Meh - 3.5 practicalitystars"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>practicalitystar3" name="<%=reviews[i]._id%>practicality-rating" value="3" />
+                                <label class="full" for="<%=reviews[i]._id%>practicalitystar3" title="Meh - 3 practicalitystars"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>practicalitystar2half" name="<%=reviews[i]._id%>practicality-rating" value="2.5"
+                                />
+                                <label class="half" for="<%=reviews[i]._id%>practicalitystar2half" title="Kinda bad - 2.5 practicalitystars"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>practicalitystar2" name="<%=reviews[i]._id%>practicality-rating" value="2" />
+                                <label class="full" for="<%=reviews[i]._id%>practicalitystar2" title="Kinda bad - 2 practicalitystars"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>practicalitystar1half" name="<%=reviews[i]._id%>practicality-rating" value="1.5"
+                                />
+                                <label class="half" for="<%=reviews[i]._id%>practicalitystar1half" title="Meh - 1.5 practicalitystars"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>practicalitystar1" name="<%=reviews[i]._id%>practicality-rating" value="1" />
+                                <label class="full" for="<%=reviews[i]._id%>practicalitystar1" title="Sucks big time - 1 practicalitystar"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>practicalitystarhalf" name="<%=reviews[i]._id%>practicality-rating" value="half"
+                                />
+                                <label class="half" for="<%=reviews[i]._id%>practicalitystarhalf" title="Sucks big time - 0.5 practicalitystars"></label>
+                            </fieldset>
+                        </div>
+                        <div class="col-lg-4">
+                            <b>Interior</b>
+                            <br/>
+                            <fieldset class="rating <%=reviews[i]._id%>-interiorrank">
+                                <input type="radio" id="<%=reviews[i]._id%>interiorstar5" name="<%=reviews[i]._id%>interior-rating" value="5" />
+                                <label class="full" for="<%=reviews[i]._id%>interiorstar5" title="Awesome - 5 interiorstars"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>interiorstar4half" name="<%=reviews[i]._id%>interior-rating" value="4.5" />
+                                <label class="half" for="<%=reviews[i]._id%>interiorstar4half" title="Pretty good - 4.5 interiorstars"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>interiorstar4" name="<%=reviews[i]._id%>interior-rating" value="4" />
+                                <label class="full" for="<%=reviews[i]._id%>interiorstar4" title="Pretty good - 4 interiorstars"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>interiorstar3half" name="<%=reviews[i]._id%>interior-rating" value="3.5" />
+                                <label class="half" for="<%=reviews[i]._id%>interiorstar3half" title="Meh - 3.5 interiorstars"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>interiorstar3" name="<%=reviews[i]._id%>interior-rating" value="3" />
+                                <label class="full" for="<%=reviews[i]._id%>interiorstar3" title="Meh - 3 interiorstars"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>interiorstar2half" name="<%=reviews[i]._id%>interior-rating" value="2.5" />
+                                <label class="half" for="<%=reviews[i]._id%>interiorstar2half" title="Kinda bad - 2.5 interiorstars"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>interiorstar2" name="<%=reviews[i]._id%>interior-rating" value="2" />
+                                <label class="full" for="<%=reviews[i]._id%>interiorstar2" title="Kinda bad - 2 interiorstars"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>interiorstar1half" name="<%=reviews[i]._id%>interior-rating" value="1.5" />
+                                <label class="half" for="<%=reviews[i]._id%>interiorstar1half" title="Meh - 1.5 interiorstars"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>interiorstar1" name="<%=reviews[i]._id%>interior-rating" value="1" />
+                                <label class="full" for="<%=reviews[i]._id%>interiorstar1" title="Sucks big time - 1 interiorstar"></label>
+                                <input type="radio" id="<%=reviews[i]._id%>interiorstarhalf" name="<%=reviews[i]._id%>interior-rating" value="half" />
+                                <label class="half" for="<%=reviews[i]._id%>interiorstarhalf" title="Sucks big time - 0.5 interiorstars"></label>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+                <%}%>
+    </div>
+    <%}%>
+
+        <!-- Click to view more reviews -->
+        <div onclick="showMoreReviews()" class="row" id="cardetail-review-viewmore">
+            <div class="col-lg-12 text-center">View more reviews</div>
+        </div>

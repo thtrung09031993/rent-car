@@ -1,0 +1,51 @@
+<div class="row">
+        <h2 style="margin-top:20px;margin-bottom: 20px;">Similar Cars</h2>
+                <div class="col-md-12">
+                        <div id="similarCar" class="carousel slide" data-ride="carousel" data-interval="false">
+                            <%var slideCount = (similarCars.length % 3 == 0) ? parseInt(similarCars.length / 3) : parseInt(similarCars.length / 3) + 1;%>
+                                <%var trace =0;%>
+                                    <ol class="carousel-indicators" id="carousel-indicators-btn">
+                                        <%for (var i = 0; i < slideCount;i++) {%>
+                                            <li data-target="#similarCar" data-slide-to="<%= i%>" class="carouselBtn <%- (i == 0) ? 'active': ''%>"></li>
+                                            <%}%>
+                                    </ol>
+                                    <div class="carousel-inner">
+                                        <%for (var i = 0; i < slideCount;i++) {%>
+                                            <div class="carousel-item <%- (i==0) ? 'active': ''%>">
+                                                <div class="row justify-content-around">
+                                                    <%for (;trace < similarCars.length;trace++) {%>
+                                                        <div class="col-md-3 text-center">
+                                                                <div class="card text-center" style="width:18rem;">
+                                                                        <a href="/car/detail/<%= similarCars[i]._id%>" style="color: inherit;text-decoration: inherit;">
+                                                                            <img class="card-img-top" src="<%= similarCars[i].image[0]%>" />
+                                                                            <div class="card-body">
+                                                                                <h5 class="card-title"><%= similarCars[i].brand%> <span class="font-weight-bold" style="color: #fcb900;"><%= similarCars[i].class%></span></h5>
+                                                                                <small class="font-weight-light">Start at <span class="font-weight-bold"><%= similarCars[i].rentalPrice%> USD</span>per day</small>
+                                                                                <div class="row">
+                                                                                    <div class="col" style="background-color:#afafaf; border-right: 0.5px solid white; border-top-left-radius: 10px;border-bottom-left-radius: 10px;">
+                                                                                        <small><%= similarCars[i].publishedYear%></small>
+                                                                                    </div>
+                                                                                    <div class="col" style="background-color:#afafaf; border-right: 0.5px solid white;">
+                                                                                        <small><%= similarCars[i].automatic ? "AUTO" : "MANUAL"%></small>
+                                                                                    </div>
+                                                                                    <div class="col" style="background-color:#afafaf; border-right: 0.5px solid white;">
+                                                                                        <small><%= similarCars[i].fuel%></small>
+                                                                                    </div>
+                                                                                    <div class="col" style="background-color:#afafaf;  border-top-right-radius: 10px;border-bottom-right-radius: 10px;">
+                                                                                        <small><%= similarCars[i].cc%>CC</small>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </div>
+                                                        </div>
+                                                            <%if ((trace + 1) % 3 == 0) break;%>
+                                                        <%}%>
+                                                        <%trace++;%>
+                                                </div>
+                                            </div>
+                                            <%}%>
+                                    </div>
+                        </div>
+                    </div>
+    </div>

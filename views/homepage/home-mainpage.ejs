@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+        <title>Home Page</title>
+        <!-- Homepage CSS -->
+        <link rel="stylesheet" href="/stylesheets/homepage.css" />
+        <!-- homepage javascript -->
+        <script type="text/javascript" src="/javascripts/homepage.js"></script>
+</head>
+
+<body onload="homepageLoad()">
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <!-- Delcare arrays for specified cars -->
+    <%
+        let popularCars = [];
+        let businessCars = [];
+        let familyCars = [];
+        let sportCars = [];
+        let limitedCars = [];
+        let slideCount = 0;
+        let carIndex = 3;
+        let driverIndex = 0;
+        let accountQuestions = [];
+        let techQuestions = [];
+        let featureQuestions = [];
+        let questionIndex = 0;
+    %>
+        <header>
+            <%include ../partials/header%>
+        </header>
+        <main>
+            <!-- Seach car now display -->
+            <%include ./home-searchcarnow%>
+
+                <!-- Advantage display -->
+                <%include ./home-advantage%>
+
+                    <!-- Know more about us -->
+                    <%include ./home-aboutus%>
+
+                        <!-- Featured cars -->
+                        <%include ./home-featurecar%>
+
+                            <!-- Drivers -->
+                            <%include ./home-drivers%>
+
+                                <!-- Find Car on map -->
+                                <%include ./home-findcaronmap%>
+
+                                    <!-- FAQ -->
+                                    <%include ./home-faq%>
+
+                                        <!-- Send Contact -->
+                                        <%include ../partials/contact%>
+
+                                            <!-- News -->
+                                            <%include ./home-news%>
+        </main>
+        <footer>
+            <%include ./home-footer%>
+        </footer>
+</body>
+
+</html>

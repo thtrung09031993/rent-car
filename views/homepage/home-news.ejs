@@ -1,0 +1,41 @@
+<!-- News -->
+<div class="container" id="news-container">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h6>ARTICLES FROM BLOG</h6>
+            <h1>Our
+                <b>Latest News.</b>
+            </h1>
+        </div>
+    </div>
+    <div class="row justify-content-around articles-row">
+        <%for (var i = 0; i < 3; i++) {%>
+            <div class="col-lg-3">
+                <img class="articles-img" src="<%=news[i].image%>" />
+                <h4 class="articles-time">
+                    <!-- Day -->
+                    <%=news[i].createdTime.toString().substring(8,10)%>
+                        <!-- Month -->
+                        <%=news[i].createdTime.toString().substring(4,7)%>
+                            <!-- Year -->
+                            <%=news[i].createdTime.toString().substring(11,15)%>
+                </h4>
+                <div class="row">
+                    <div class="col-lg-12 articles-title">
+                        <%=news[i].title%>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 articles-content">
+                        <%  if (news[i].content.length > 100) {%>
+                            <%=news[i].content.substring(0,100)%> ...
+                                <%} else {%>
+                                    <%=news[i].content%>
+                                        <%}%>
+                    </div>
+                </div>
+                <button class="articles-button">READ ARTICLE</button>
+            </div>
+            <%}%>
+    </div>
+</div>

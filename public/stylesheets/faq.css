@@ -1,0 +1,157 @@
+/*~~~~~~~~~~~~~~~~~~ Specified CSS - FAQ ~~~~~~~~~~~~~~~~~~~~*/
+
+/*Title*/
+.faqpage-title-cf {
+    background-image: url(https://latestautocar.com/wp-content/uploads/2017/04/Luxury-Car-Wallpaper-Nexus-5-with-Image-Car-of-Car-Wallpaper-Nexus-5-at-Design.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100% 100%;
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
+
+.faqpage-title a{
+    color: white;
+    text-decoration: none;
+}
+
+.faqpage-title h6{
+    margin-top: 30px;
+}
+
+.faqpage-title h2{
+    color: rgb(255, 174, 0);
+}
+
+/*FAQ*/
+.faqpage-faq-cf {
+    background-color: rgb(247, 207, 231);
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
+
+.faq-faq-firsttitle h6{
+    color: black;
+}
+
+.faq-make-question {
+    border-style: none;
+    color: white;
+    background-color: yellow;
+    padding-left: 20px;
+}
+.faq-make-question img {
+    height: 20px;
+    width: 20px;
+}
+
+.faq-faq-decorate-border {
+    border-bottom-style: solid;
+    border-color: rgb(255, 187, 0);
+}
+
+
+.faq-faq-bottom h6{
+    margin-top: 30px;
+    color: black;
+}
+
+.faq-faq-bottom button {
+    height: 60px;
+    width: 280px;
+}
+
+.faq-faq-account-title {
+    margin-top: 70px;
+}
+
+.faq-faq-other-title {
+    margin-top: 70px;
+}
+
+.faq-faq-questionandanswer {
+    background-color: white;
+    margin-top: 30px;
+}
+
+.faq-faq-questionandanswer h6 {
+    font-weight: bolder;
+    color: rgb(255, 187, 0);
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.faq-faq-questions {
+    margin-top: 10px;
+    font-weight: bolder;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.faq-faq-answers {
+    display: none;
+    color: rgb(167, 166, 166);
+}
+
+
+
+.show-hide-buttons img {
+    position: relative;
+    left: -15px;
+    bottom: -15px;
+    height: 20px;
+    width: 20px;
+}
+
+.hide-button {
+    display: none;
+}
+
+#faq-makequestion-cf {
+    background-image: url(https://s-media-cache-ak0.pinimg.com/originals/8b/95/83/8b958356d0304fad1daa3186e428c9ba.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100% 100%;
+    padding-top: 200px;
+    padding-bottom: 200px;
+    color: white;
+}
+
+#faq-makequestion-cf label {
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+#faq-makequestion-cf img {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top:-10px;
+}
+
+#faq-makequestion-title {
+    font-size: 40px;
+    color: rgb(255, 208, 0);
+}
+
+#faq-response-question {
+    background-image: url(https://images3.alphacoders.com/192/192799.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100% 100%;
+    background-color: rgb(238, 139, 225);
+    padding-top: 300px;
+    padding-bottom: 300px;
+}
+
+#faq-response-question h1{
+    color: blueviolet;
+    font-weight: bolder;
+    margin-bottom: 200px;
+}
+
+#faq-response-question a{
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+}

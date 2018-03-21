@@ -1,0 +1,124 @@
+/*~~~~~~~~~~~~~~~~~~ Specified CSS - Service ~~~~~~~~~~~~~~~~~~~~*/
+
+/*Title*/
+
+.servicepage-title-cf {
+    background-image: url(https://latestautocar.com/wp-content/uploads/2017/04/Luxury-Car-Wallpaper-Nexus-5-with-Image-Car-of-Car-Wallpaper-Nexus-5-at-Design.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100% 100%;
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
+
+
+
+.servicepage-title a {
+    color: white;
+    text-decoration: none;
+}
+
+.servicepage-title h6 {
+    margin-top: 30px;
+}
+
+.servicepage-title h2 {
+    color: rgb(255, 174, 0);
+}
+
+/*Advantage*/
+.service-advantage-cf {
+    background-color: rgb(248, 204, 252);
+}
+
+#service-advantage-c {
+    padding-top: 200px;
+    padding-bottom: 200px;
+    position: relative;
+    z-index: 1;
+}
+
+#service-advantage-logo {
+    position: absolute;
+    z-index: 0;
+    opacity: 0.15;
+    left: 500px;
+    top: 180px;
+    height: 100px;
+    width: 100px;
+}
+
+#advantagesline div {
+    margin-top: 50px;
+    padding-top: 30px;
+    margin-bottom: 50px;
+    background-color: honeydew;
+    transition: 0.2s;
+    height: 200px;
+}
+
+#advantagesline div:hover {
+    background-color: yellow;
+    color: white;
+}
+
+#advantagedetail-advantage {
+    text-align: center;
+}
+
+#advantagedetail-advantage h5 {
+    font-weight: bold;
+}
+
+#advantagedetail-advantage img {
+    display: block;
+    margin: 0 auto;
+    height: 50px;
+    width: 50px;
+}
+
+#advantage-title h6 {
+    color: black;
+}
+
+/* Service */
+.service-service-c {
+    padding-bottom: 200px;
+    padding-top: 200px;
+}
+
+.service-service-c h6 {
+    color: black;
+}
+
+.service-services img {
+    height: 50px;
+    width: 50px;
+    margin:auto;
+}
+
+.service-service-line {
+    margin-top: 100px;
+}
+
+.service-services {
+    border-bottom-style: solid;
+    border-right-style: solid;
+    border-width: 0.5px;
+    border-color: lightgray;
+    padding: 30px 30px 30px 30px;
+    transition: 0.2s;
+}
+
+.service-services h4 {
+    margin-top: 10px;
+}
+
+.service-services span {
+    color: rgb(182, 177, 177);
+}
+
+.service-services:hover {
+    transform: scale(1.5);
+    box-shadow: 10px 10px 10px 10px lightgray;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%include ../partials/head%>
+        <title>Contact Us</title>
+        <script type="text/javascript">
+            var addressList = [];
+        <% for (var i = 0, len = contacts.length; i < len; i++) { %>
+                addressList.push({
+                    address: '<%- contacts[i].address %>',
+                    phone: '<%- contacts[i].phone%>',
+                    email: '<%- contacts[i].email%>',
+                    image: '<%- contacts[i].image%>'
+                });
+        <% } %>
+
+                google.maps.event.addDomListener(window, 'load', loadMap);
+
+        // autoCenter();
+        </script>
+        <!-- Contact Us CSS -->
+        <link rel="stylesheet" href="/stylesheets/contactus.css" />
+        <!-- Google Map javascript -->
+        <script type="text/javascript" src="/javascripts/contact-map.js"></script>
+</head>
+
+<body>
+    <header>
+        <%include ../partials/header%>
+    </header>
+    <main>
+        <!-- Title -->
+        <%include ./contactus-title%>
+            <!-- Contact Display -->
+            <%include ./contactus-display%>
+                <!-- Contact map -->
+                <%include ./contactus-map%>
+                    <!-- Contact message -->
+                    <%include ../partials/contact%>
+    </main>
+    <footer>
+        <%include ../partials/footer%>
+    </footer>
+</body>
+
+</html>

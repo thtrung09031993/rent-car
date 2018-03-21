@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffe311;padding-left: 20%;padding-top: 20px;padding-bottom: 20px;">
+    <a class="navbar-brand" href="#">Royal
+        <span class="font-weight-bold">CARS</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/home">HOME</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/aboutus">ABOUT US</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/car/gallery">VEHICLES</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/car/gallery">GALLERY</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/driver/all">DRIVERS</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/service">SERVICES</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/contactus">CONTACT US</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/faq">FAQ</a>
+            </li>
+            <%if (typeof(user) !== 'undefined' ) {%>
+                <li class="nav-item">
+                    <button id="login-nav-item" onclick="location.href = '/car/search'">
+                        <img src="http://www.pvhc.net/img3/ghfdkufafgdukrsgjvwc.png">
+                        <br/>
+                        <b>SEARCH</b>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <div id="user-info">
+                        <%if (typeof(user.facebook) === 'undefined') {%>
+                            <a href="/user/profile"><img src="http://www.cando.org/wp-content/uploads/2014/11/Facebook-no-profile-picture-icon-620x389-e1416282288251.jpg"></a>
+                            <b><%=user.name%></b><br/>
+                        <%} else {%>
+                            <a href="/user/profile"><img src="<%=user.facebook.image%>"></a>
+                            <b><%=user.facebook.name%></b><br/>
+                        <%}%>                                    
+                        <a href="/logout">Logout</a>
+                    </div>
+                </li>
+                <%} else {%>
+                    <li class="nav-item">
+                        <button onclick="location.href = '/user/login'" id="login-nav-item">
+                            <img src="https://cdn2.iconfinder.com/data/icons/entoni/32/entoni_lock-512.png">
+                            <br/>
+                            <b>LOGIN</b>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button id="login-nav-item" onclick="location.href = '/car/search'">
+                            <img src="http://www.pvhc.net/img3/ghfdkufafgdukrsgjvwc.png">
+                            <br/>
+                            <b>SEARCH</b>
+                        </button>
+                    </li>
+                    <%}%>
+        </ul>
+    </div>
+</nav>

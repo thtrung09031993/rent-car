@@ -1,0 +1,103 @@
+#main-login-intro {
+  height: 600px;
+  background: url("https://www.tesla.com/sites/default/files/images/model-x/section-hero-background.jpg?20170907");
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: cover;
+  -webkit-filter: grayscale(60%); /* Safari */
+  filter: grayscale(60%);
+}
+
+#login-and-register {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: #feffd1;
+}
+
+
+#contact {
+  padding-top: 150px;
+  padding-bottom: 150px;
+  background: url("https://electrek.files.wordpress.com/2017/06/tesla-hero-header.jpg?quality=82&strip=all&w=1600&h=528");
+  height: 650px;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: cover;
+}
+
+#linear {
+  width: 100%;
+  z-index: 999;
+  color: yellow;
+  position:relative;
+  background:linear-gradient(to top, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 95%,rgba(0,0,0,0) 99%);
+}
+
+#footer {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+#lineBreak.horizontalTitle
+{
+  margin: 15px;
+}
+
+#lineBreak.verticalTitle ,#lineBreak.horizontalTitle {
+  position: relative;
+  z-index: 1;
+  text-align:center;
+  background: none;
+  font-size: 10px;
+}
+
+#lineBreak.horizontalTitle::before
+{
+  border-top: 2px solid #dfdfdf;
+  content:"";
+  margin: 0 auto;
+  position: absolute;
+  top: 50%; left: 0; right: 0; bottom: 0;
+  z-index: -1;
+}
+
+#lineBreak.verticalTitle::before {
+  border-top: 2px solid yellow;
+  content:"";
+  margin: 0 auto;
+  position: absolute;
+  top: 50%; left: 0; right: 0; bottom: 0;
+  z-index: -1;
+  transform: rotate(90deg);
+}
+
+#lineBreak span
+{
+  background: #fff;
+  padding: 0 10px;
+}
+
+.success-page {
+  height: 600px;
+}
+
+.login-resetpassword {
+  padding-top: 50px;
+  padding-bottom: 200px;
+}
+
+
+.reset-form {
+  margin-top: 50px;
+}
+
+.resetpassword-form {
+  padding-top: 100px;
+  padding-bottom: 200px;
+  padding-left: 200px;
+}
+/*#contact input {*/
+  /*background-color: #d3d3d3;*/
+/*}*/

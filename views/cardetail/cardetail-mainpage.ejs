@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%include ../partials/head%>
+        <title>Car Detail -
+            <%=car.brand%>
+                <%=car.class%>
+        </title>
+        <!-- Load the reviews array -->
+        <script>
+            var array = <%- JSON.stringify(reviews) %>;
+        </script>
+        <!-- Car Detail CSS -->
+        <link rel="stylesheet" href="/stylesheets/cardetail.css" />
+        <!-- Car Detail javascript -->
+        <script type="text/javascript" src="/javascripts/cardetail.js"></script>
+</head>
+
+<body onload="cardetailPageLoad();reviewPageLoad(array);">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+    <header>
+        <%include ../partials/header%>
+    </header>
+    <main>
+        <!-- Title -->
+        <%include ./cardetail-title%>
+            <!-- Middle -->
+            <%include ./cardetail-middle%>
+                <!-- Similar car -->
+                <%include ./cardetail-similar%>
+                    <!-- Contact -->
+                    <%include ../partials/contact%>
+    </main>
+    <footer>
+        <%include ../partials/footer%>
+    </footer>
+</body>
+
+</html>

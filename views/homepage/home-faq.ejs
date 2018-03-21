@@ -1,0 +1,166 @@
+<!-- FAQ -->
+<!-- Push questions types -->
+<%for (var i = 0; i < questions.length; i++) {
+    if (questions[i].type === 'account'){
+        accountQuestions.push(questions[i]);
+    }
+    if (questions[i].type === 'tech'){
+        techQuestions.push(questions[i]);
+    }
+    if (questions[i].type === 'feature'){
+        featureQuestions.push(questions[i]);
+    }
+} %>
+    <div class="container-fluid faq-cf">
+        <div class="container">
+            <div class="row faq-titleandtab">
+                <div class="col-lg-6 faq-title">
+                    <h6>FIND YOUR ANSWER HERE</h6>
+                    <h1>Frequently
+                        <b>Ask & Questions</b>
+                    </h1>
+                </div>
+                <div class="col-lg-6 faq-tab">
+                    <div class="row">
+                        <button onclick="accountClick()" id="accountQuestion" class="col-lg-4 faq-tab-button">
+                            <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/275225-200.png" />
+                            <br/>
+                            <b>ABOUT ACCOUNT</b>
+                        </button>
+                        <button onclick="techClick()" id="techQuestion" class="col-lg-4 faq-tab-button">
+                            <img src="https://cdn4.iconfinder.com/data/icons/aiga-symbol-signs/444/aiga_information-512.png" />
+                            <br/>
+                            <b>TECHNICAL SUPPORT</b>
+                        </button>
+                        <button onclick="featureClick()" id="featureQuestion" class="col-lg-4 faq-tab-button">
+                            <img src="http://icons.iconarchive.com/icons/icons8/android/512/Transport-Car-icon.png" />
+                            <br/>
+                            <b>CARS FEATURES</b>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-1 faq-decorate-border"></div>
+            </div>
+
+            <!-- FAQ - account -->
+            <div class="row" id="faq-account">
+                <div class="col-lg-12">
+                    <% while (questionIndex < accountQuestions.length){
+                if (questionIndex % 2 === 0){ %>
+                        <div class="row justify-content-between">
+                            <%for (var i = 0; i < 2; i++){
+                                if (questionIndex === accountQuestions.length){
+                                    break;
+                                }%>
+                                <div class="col-lg-5">
+                                    <div class="row">                                        
+                                            <div id="<%=accountQuestions[questionIndex]._id%>-Div" class="col-lg-2 faq-show-hide-answers">
+                                                <img id="<%=accountQuestions[questionIndex]._id%>-Show" onclick="showAnswer('<%=accountQuestions[questionIndex]._id%>')"
+                                                    class="show-answer" src="https://d30y9cdsu7xlg0.cloudfront.net/png/11584-200.png"
+                                                />
+                                                <img id="<%=accountQuestions[questionIndex]._id%>-Hide" onclick="hideAnswer('<%=accountQuestions[questionIndex]._id%>')"
+                                                    class="hide-answer" src="https://image.freepik.com/free-icon/chevron-arrow-sign-up-button_318-41798.jpg"
+                                                />
+                                            </div>
+                                            <div class="col-lg-10 faq-questions">
+                                                <%=accountQuestions[questionIndex].question%>
+                                            </div>
+                                    </div>
+                                    <div class="row faq-answers" id="<%=accountQuestions[questionIndex]._id%>">
+                                        <% if (typeof(accountQuestions[questionIndex].answer) === 'undefined'
+                                    || accountQuestions[questionIndex].answer === '') {%>
+                                            Question has not been answered yet!
+                                            <%} else {%>
+                                                <%=accountQuestions[questionIndex].answer%>
+                                                    <% } %>
+                                    </div>
+                                </div>
+                                <%questionIndex++;}%>
+                        </div>
+                        <%}} %>
+                </div>
+            </div>
+            <%questionIndex = 0;%>
+
+                <!-- FAQ - tech -->
+                <div class="row" id="faq-tech">
+                    <div class="col-lg-12">
+                        <% while (questionIndex < techQuestions.length){
+                            if (questionIndex % 2 === 0){ %>
+                            <div class="row justify-content-between">
+                                <%for (var i = 0; i < 2; i++){
+                                        if (questionIndex === techQuestions.length){
+                                            break;
+                                        }%>
+                                    <div class="col-lg-5">
+                                        <div class="row">
+                                            <div id="<%=techQuestions[questionIndex]._id%>-Div" class="col-lg-2 faq-show-hide-answers">
+                                                <img id="<%=techQuestions[questionIndex]._id%>-Show" onclick="showAnswer('<%=techQuestions[questionIndex]._id%>')" class="show-answer"
+                                                    src="https://d30y9cdsu7xlg0.cloudfront.net/png/11584-200.png" />
+                                                <img id="<%=techQuestions[questionIndex]._id%>-Hide" onclick="hideAnswer('<%=techQuestions[questionIndex]._id%>')" class="hide-answer"
+                                                    src="https://image.freepik.com/free-icon/chevron-arrow-sign-up-button_318-41798.jpg"
+                                                />
+                                            </div>
+                                            <div class="col-lg-10 faq-questions">
+                                                <%=techQuestions[questionIndex].question%>
+                                            </div>
+                                        </div>
+                                        <div class="row faq-answers" id="<%=techQuestions[questionIndex]._id%>">
+                                            <% if (typeof(techQuestions[questionIndex].answer) === 'undefined'
+                                                || techQuestions[questionIndex].answer === '') {%>
+                                                Question has not been answered yet!
+                                                <%} else {%>
+                                                    <%=techQuestions[questionIndex].answer%>
+                                                        <% } %>
+                                        </div>
+                                    </div>
+                                    <%questionIndex++;}%>
+                            </div>
+                            <%}} %>
+                    </div>
+                </div>
+                <%questionIndex = 0;%>
+
+                    <!-- FAQ - feature -->
+                    <div class="row" id="faq-feature">
+                        <div class="col-lg-12">
+                            <% while (questionIndex < featureQuestions.length){
+                            if (questionIndex % 2 === 0){ %>
+                                <div class="row justify-content-between">
+                                    <%for (var i = 0; i < 2; i++){
+                                            if (questionIndex === featureQuestions.length){
+                                                break;
+                                            }%>
+                                        <div class="col-lg-5">
+                                            <div class="row">
+                                                <div id="<%=featureQuestions[questionIndex]._id%>-Div" class="col-lg-2 faq-show-hide-answers">
+                                                    <img id="<%=featureQuestions[questionIndex]._id%>-Show" onclick="showAnswer('<%=featureQuestions[questionIndex]._id%>')"
+                                                        class="show-answer" src="https://d30y9cdsu7xlg0.cloudfront.net/png/11584-200.png"
+                                                    />
+                                                    <img id="<%=featureQuestions[questionIndex]._id%>-Hide" onclick="hideAnswer('<%=featureQuestions[questionIndex]._id%>')"
+                                                        class="hide-answer" src="https://image.freepik.com/free-icon/chevron-arrow-sign-up-button_318-41798.jpg"
+                                                    />
+                                                </div>
+                                                <div class="col-lg-10 faq-questions">
+                                                    <%=featureQuestions[questionIndex].question%>
+                                                </div>
+                                            </div>
+                                            <div class="row faq-answers" id="<%=featureQuestions[questionIndex]._id%>">
+                                                <% if (typeof(featureQuestions[questionIndex].answer) === 'undefined'
+                                                || featureQuestions[questionIndex].answer === '') {%>
+                                                    Question has not been answered yet!
+                                                    <%} else {%>
+                                                        <%=featureQuestions[questionIndex].answer%>
+                                                            <% } %>
+                                            </div>
+                                        </div>
+                                        <%questionIndex++;}%>
+                                </div>
+                                <%}} %>
+                        </div>
+                    </div>
+                    <%questionIndex = 0;%>
+        </div>
+    </div>
